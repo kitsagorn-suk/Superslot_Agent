@@ -1,0 +1,823 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DE07CAA5-0829-49D6-A79C-F18B08326D05}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Pretty_Gaming</RootNamespace>
+    <AssemblyName>Pretty_Gaming</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="RestSharp">
+      <HintPath>..\..\..\..\..\Downloads\RestSharp.104.1\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Sockets, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Downloads\System.Net.Sockets\System.Net.Sockets.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.bootstrap">
+      <HintPath>..\packages\AspNet.ScriptManager.bootstrap.3.0.0\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.1.10.2\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.2.0.0\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\addons\datatables-select.css" />
+    <Content Include="css\addons\datatables-select.min.css" />
+    <Content Include="css\addons\datatables.css" />
+    <Content Include="css\addons\datatables.min.css" />
+    <Content Include="css\addons\directives.css" />
+    <Content Include="css\addons\directives.min.css" />
+    <Content Include="css\addons\flag.css" />
+    <Content Include="css\addons\flag.min.css" />
+    <Content Include="css\addons\rating.css" />
+    <Content Include="css\addons\rating.min.css" />
+    <Content Include="css\addons\zmd.hierarchical-display.css" />
+    <Content Include="css\addons\zmd.hierarchical-display.min.css" />
+    <Content Include="css\bootstrap-datepicker3.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\datepicker.css" />
+    <Content Include="css\jquery-ui.css" />
+    <Content Include="css\marquee.css" />
+    <Content Include="css\mdb.css" />
+    <Content Include="css\mdb.lite.css" />
+    <Content Include="css\mdb.lite.min.css" />
+    <Content Include="css\mdb.min.css" />
+    <Content Include="css\modules\animations-extended.css" />
+    <Content Include="css\modules\animations-extended.min.css" />
+    <Content Include="css\pagination.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\style.min.css" />
+    <Content Include="css\w3.css" />
+    <Content Include="img\chart01.jpg" />
+    <Content Include="img\chart02.jpg" />
+    <Content Include="img\chart03.jpg" />
+    <Content Include="img\chart04.jpg" />
+    <Content Include="img\excel_logo.png" />
+    <Content Include="img\flags.png" />
+    <Content Include="img\Flag\china.png" />
+    <Content Include="img\Flag\indonesia.png" />
+    <Content Include="img\Flag\malaysia.png" />
+    <Content Include="img\Flag\thailand.png" />
+    <Content Include="img\Flag\usa.png" />
+    <Content Include="img\Flag\vietnam.png" />
+    <Content Include="img\icons\ic-add.svg" />
+    <Content Include="img\icons\ic-arr-right.svg">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="img\icons\ic-dashboard-active.svg" />
+    <Content Include="img\icons\ic-dashboard.svg" />
+    <Content Include="img\icons\ic-draw-results-active.svg" />
+    <Content Include="img\icons\ic-draw-results.svg" />
+    <Content Include="img\icons\ic-edit.svg" />
+    <Content Include="img\icons\ic-eye-slash.svg" />
+    <Content Include="img\icons\ic-eye.svg" />
+    <Content Include="img\icons\ic-guide.svg" />
+    <Content Include="img\icons\ic-info.svg" />
+    <Content Include="img\icons\ic-input-minus.svg" />
+    <Content Include="img\icons\ic-input-plus.svg" />
+    <Content Include="img\icons\ic-member-active.svg" />
+    <Content Include="img\icons\ic-member.svg" />
+    <Content Include="img\icons\ic-mobile.svg" />
+    <Content Include="img\icons\ic-payment-active.svg" />
+    <Content Include="img\icons\ic-payment.svg" />
+    <Content Include="img\icons\ic-payout-rates-active.svg" />
+    <Content Include="img\icons\ic-payout-rates.svg" />
+    <Content Include="img\icons\ic-print.svg" />
+    <Content Include="img\icons\ic-refresh.svg" />
+    <Content Include="img\icons\ic-report-active.svg" />
+    <Content Include="img\icons\ic-report.svg" />
+    <Content Include="img\icons\ic-search.svg" />
+    <Content Include="img\icons\ic-settings-active.svg" />
+    <Content Include="img\icons\ic-settings.svg" />
+    <Content Include="img\icons\ic-success-sm.svg" />
+    <Content Include="img\icons\ic-times.svg" />
+    <Content Include="img\icons\ic-upload-file.svg" />
+    <Content Include="img\icons\ic-user.svg" />
+    <Content Include="img\img-input-file.png" />
+    <Content Include="img\lightbox\default-skin.png" />
+    <Content Include="img\lightbox\default-skin.svg" />
+    <Content Include="img\lightbox\preloader.gif" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\logo2.png" />
+    <Content Include="img\logoTab.png" />
+    <Content Include="img\noImage.jpg" />
+    <Content Include="img\overlays\01.png" />
+    <Content Include="img\overlays\02.png" />
+    <Content Include="img\overlays\03.png" />
+    <Content Include="img\overlays\04.png" />
+    <Content Include="img\overlays\05.png" />
+    <Content Include="img\overlays\06.png" />
+    <Content Include="img\overlays\07.png" />
+    <Content Include="img\overlays\08.png" />
+    <Content Include="img\overlays\09.png" />
+    <Content Include="img\sample.jpg" />
+    <Content Include="img\svg\arrow_left.svg" />
+    <Content Include="img\svg\arrow_right.svg" />
+    <Content Include="img\svg\flags.png" />
+    <Content Include="js\accessibility.js" />
+    <Content Include="js\bootstrap-datepicker.js" />
+    <Content Include="js\bootstrap-datepicker.min.js" />
+    <Content Include="js\bootstrap-slider.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="font\fa5\fa-brands-400.svg" />
+    <Content Include="font\fa5\fa-regular-400.svg" />
+    <Content Include="font\fa5\fa-solid-900.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="js\ace.min.js" />
+    <Content Include="js\addons\datatables-select.js" />
+    <Content Include="js\addons\datatables-select.min.js" />
+    <Content Include="js\addons\datatables.js" />
+    <Content Include="js\addons\datatables.min.js" />
+    <Content Include="js\addons\imagesloaded.pkgd.min.js" />
+    <Content Include="js\addons\jquery.zmd.hierarchical-display.js" />
+    <Content Include="js\addons\jquery.zmd.hierarchical-display.min.js" />
+    <Content Include="js\addons\masonry.pkgd.min.js" />
+    <Content Include="js\addons\progressBar.js" />
+    <Content Include="js\addons\progressBar.min.js" />
+    <Content Include="js\addons\rating.js" />
+    <Content Include="js\addons\rating.min.js" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\card.js" />
+    <Content Include="js\export-data.js" />
+    <Content Include="js\exporting.js" />
+    <Content Include="js\highcharts.js" />
+    <Content Include="js\jquery-3.4.1.min.js" />
+    <Content Include="js\jquery-ui.js" />
+    <Content Include="js\jquery.marquee.min.js" />
+    <Content Include="js\language_Login.js" />
+    <Content Include="js\marquee.js" />
+    <Content Include="js\mdb.js" />
+    <Content Include="js\mdb.min.js" />
+    <Content Include="js\pagination.js" />
+    <Content Include="js\popper.min.js" />
+    <Content Include="js\series-label.js" />
+    <Content Include="js\stickycolumn.js" />
+    <Content Include="Menu_Account\profile.aspx" />
+    <Content Include="Menu_Announcement\Announcements.aspx" />
+    <Content Include="Menu_CheckBalance\transfer_failed.aspx" />
+    <Content Include="Menu_Daily\goal.aspx" />
+    <Content Include="Menu_Daily\reward.aspx" />
+    <Content Include="Menu_Dashboard\dashboard.aspx" />
+    <Content Include="Menu_Account\password_change.aspx" />
+    <Content Include="Menu_Feedback\feedback.aspx" />
+    <Content Include="Menu_LuckyDraw\goal.aspx" />
+    <Content Include="Menu_LuckyDraw\logs.aspx" />
+    <Content Include="Menu_LuckyDraw\reward.aspx" />
+    <Content Include="Menu_Marketing\Game.aspx" />
+    <Content Include="Menu_Market\goal.aspx" />
+    <Content Include="Menu_Market\item.aspx" />
+    <Content Include="Menu_MemberManagement\provider_id.aspx" />
+    <Content Include="Menu_MemberManagement\sub_accounts.aspx" />
+    <Content Include="Menu_MemberManagement\sub_user_add.aspx" />
+    <Content Include="Menu_Member\member_add.aspx" />
+    <Content Include="Menu_Mission\Mission.aspx" />
+    <Content Include="Menu_Notification\notification.aspx" />
+    <Content Include="Menu_Online\online_user.aspx" />
+    <Content Include="Menu_Payment\dw_statement.aspx" />
+    <Content Include="Menu_Payment\dw_statement_support.aspx" />
+    <Content Include="Menu_Payment\statement.aspx" />
+    <Content Include="Menu_Payment\transfer.aspx" />
+    <Content Include="Menu_RedEnvelope\goal.aspx" />
+    <Content Include="Menu_RedEnvelope\reward.aspx" />
+    <Content Include="Menu_RedEnvelope\tier.aspx" />
+    <Content Include="Menu_Report\daily_report.aspx" />
+    <Content Include="Menu_Report\game_report.aspx" />
+    <Content Include="Menu_Report\lucky_report.aspx" />
+    <Content Include="Menu_Report\market_report.aspx" />
+    <Content Include="Menu_Report\provider_report.aspx" />
+    <Content Include="Menu_Report\red_report.aspx" />
+    <Content Include="Menu_Report\tournament_report.aspx" />
+    <Content Include="Menu_Report\wl_report.aspx" />
+    <Content Include="Menu_Report\wl_report_support.aspx" />
+    <Content Include="Menu_Tournament\tournament_latest.aspx" />
+    <Content Include="Menu_Tournament\tournment_logs.aspx" />
+    <Content Include="Menu_Tournament\tournment_prize.aspx" />
+    <Content Include="Menu_Tournament\tournment_rules.aspx" />
+    <Content Include="Scripts\js\addons\datatables-select.js" />
+    <Content Include="Scripts\js\addons\datatables-select.min.js" />
+    <Content Include="Scripts\js\addons\datatables.js" />
+    <Content Include="Scripts\js\addons\datatables.min.js" />
+    <Content Include="Scripts\js\addons\imagesloaded.pkgd.min.js" />
+    <Content Include="Scripts\js\addons\jquery.zmd.hierarchical-display.js" />
+    <Content Include="Scripts\js\addons\jquery.zmd.hierarchical-display.min.js" />
+    <Content Include="Scripts\js\addons\masonry.pkgd.min.js" />
+    <Content Include="Scripts\js\addons\progressBar.js" />
+    <Content Include="Scripts\js\addons\progressBar.min.js" />
+    <Content Include="Scripts\js\addons\rating.js" />
+    <Content Include="Scripts\js\addons\rating.min.js" />
+    <Content Include="Scripts\js\bootstrap.js" />
+    <Content Include="Scripts\js\bootstrap.min.js" />
+    <Content Include="Scripts\js\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\js\mdb.js" />
+    <Content Include="Scripts\js\mdb.min.js" />
+    <Content Include="Scripts\js\popper.min.js" />
+    <Content Include="Menu_MemberManagement\company_list.aspx" />
+    <Content Include="Menu_MemberManagement\company_add.aspx" />
+    <Content Include="Scripts\underscore.js" />
+    <Content Include="Scripts\underscore.min.js" />
+    <Content Include="Site.Master" />
+    <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Bundle.config" />
+    <Content Include="packages.config" />
+    <Content Include="Site.Mobile.Master" />
+    <Content Include="font\roboto\Roboto-Bold.eot" />
+    <Content Include="font\roboto\Roboto-Bold.ttf" />
+    <Content Include="font\roboto\Roboto-Bold.woff" />
+    <Content Include="font\roboto\Roboto-Bold.woff2" />
+    <Content Include="font\roboto\Roboto-Light.eot" />
+    <Content Include="font\roboto\Roboto-Light.ttf" />
+    <Content Include="font\roboto\Roboto-Light.woff" />
+    <Content Include="font\roboto\Roboto-Light.woff2" />
+    <Content Include="font\roboto\Roboto-Medium.eot" />
+    <Content Include="font\roboto\Roboto-Medium.ttf" />
+    <Content Include="font\roboto\Roboto-Medium.woff" />
+    <Content Include="font\roboto\Roboto-Medium.woff2" />
+    <Content Include="font\roboto\Roboto-Regular.eot" />
+    <Content Include="font\roboto\Roboto-Regular.ttf" />
+    <Content Include="font\roboto\Roboto-Regular.woff" />
+    <Content Include="font\roboto\Roboto-Regular.woff2" />
+    <Content Include="font\roboto\Roboto-Thin.eot" />
+    <Content Include="font\roboto\Roboto-Thin.ttf" />
+    <Content Include="font\roboto\Roboto-Thin.woff" />
+    <Content Include="font\roboto\Roboto-Thin.woff2" />
+    <Content Include="font\fa5\fa-brands-400.eot" />
+    <Content Include="font\fa5\fa-brands-400.ttf" />
+    <Content Include="font\fa5\fa-brands-400.woff" />
+    <Content Include="font\fa5\fa-brands-400.woff2" />
+    <Content Include="font\fa5\fa-regular-400.eot" />
+    <Content Include="font\fa5\fa-regular-400.ttf" />
+    <Content Include="font\fa5\fa-regular-400.woff2" />
+    <Content Include="font\fa5\fa-solid-900.eot" />
+    <Content Include="font\fa5\fa-solid-900.ttf" />
+    <Content Include="font\fa5\fa-solid-900.woff" />
+    <Content Include="font\fa5\fa-solid-900.woff2" />
+    <Content Include="Login.aspx" />
+    <None Include="Properties\PublishProfiles\AgentPretty.pubxml" />
+    <Content Include="Scripts\underscore.min.map" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Account\profile.aspx.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Account\profile.aspx.designer.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Announcement\Announcements.aspx.cs">
+      <DependentUpon>Announcements.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Announcement\Announcements.aspx.designer.cs">
+      <DependentUpon>Announcements.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_CheckBalance\transfer_failed.aspx.cs">
+      <DependentUpon>transfer_failed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_CheckBalance\transfer_failed.aspx.designer.cs">
+      <DependentUpon>transfer_failed.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Daily\goal.aspx.cs">
+      <DependentUpon>goal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Daily\goal.aspx.designer.cs">
+      <DependentUpon>goal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Daily\reward.aspx.cs">
+      <DependentUpon>reward.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Daily\reward.aspx.designer.cs">
+      <DependentUpon>reward.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Dashboard\dashboard.aspx.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Dashboard\dashboard.aspx.designer.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Feedback\feedback.aspx.cs">
+      <DependentUpon>feedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Feedback\feedback.aspx.designer.cs">
+      <DependentUpon>feedback.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_LuckyDraw\goal.aspx.cs">
+      <DependentUpon>goal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_LuckyDraw\goal.aspx.designer.cs">
+      <DependentUpon>goal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_LuckyDraw\logs.aspx.cs">
+      <DependentUpon>logs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_LuckyDraw\logs.aspx.designer.cs">
+      <DependentUpon>logs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_LuckyDraw\reward.aspx.cs">
+      <DependentUpon>reward.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_LuckyDraw\reward.aspx.designer.cs">
+      <DependentUpon>reward.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Marketing\Game.aspx.cs">
+      <DependentUpon>Game.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Marketing\Game.aspx.designer.cs">
+      <DependentUpon>Game.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Market\goal.aspx.cs">
+      <DependentUpon>goal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Market\goal.aspx.designer.cs">
+      <DependentUpon>goal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Market\item.aspx.cs">
+      <DependentUpon>item.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Market\item.aspx.designer.cs">
+      <DependentUpon>item.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_MemberManagement\provider_id.aspx.cs">
+      <DependentUpon>provider_id.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_MemberManagement\provider_id.aspx.designer.cs">
+      <DependentUpon>provider_id.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_MemberManagement\sub_accounts.aspx.cs">
+      <DependentUpon>sub_accounts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_MemberManagement\sub_accounts.aspx.designer.cs">
+      <DependentUpon>sub_accounts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_MemberManagement\sub_user_add.aspx.cs">
+      <DependentUpon>sub_user_add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_MemberManagement\sub_user_add.aspx.designer.cs">
+      <DependentUpon>sub_user_add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Member\member_add.aspx.cs">
+      <DependentUpon>member_add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Member\member_add.aspx.designer.cs">
+      <DependentUpon>member_add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Mission\Mission.aspx.cs">
+      <DependentUpon>Mission.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Mission\Mission.aspx.designer.cs">
+      <DependentUpon>Mission.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Notification\notification.aspx.cs">
+      <DependentUpon>notification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Notification\notification.aspx.designer.cs">
+      <DependentUpon>notification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Online\online_user.aspx.cs">
+      <DependentUpon>online_user.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Online\online_user.aspx.designer.cs">
+      <DependentUpon>online_user.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Payment\dw_statement.aspx.cs">
+      <DependentUpon>dw_statement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Payment\dw_statement.aspx.designer.cs">
+      <DependentUpon>dw_statement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Payment\dw_statement_support.aspx.cs">
+      <DependentUpon>dw_statement_support.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Payment\dw_statement_support.aspx.designer.cs">
+      <DependentUpon>dw_statement_support.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Payment\statement.aspx.cs">
+      <DependentUpon>statement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Payment\statement.aspx.designer.cs">
+      <DependentUpon>statement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Payment\transfer.aspx.cs">
+      <DependentUpon>transfer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Payment\transfer.aspx.designer.cs">
+      <DependentUpon>transfer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_RedEnvelope\goal.aspx.cs">
+      <DependentUpon>goal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_RedEnvelope\goal.aspx.designer.cs">
+      <DependentUpon>goal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_RedEnvelope\reward.aspx.cs">
+      <DependentUpon>reward.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_RedEnvelope\reward.aspx.designer.cs">
+      <DependentUpon>reward.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_RedEnvelope\tier.aspx.cs">
+      <DependentUpon>tier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_RedEnvelope\tier.aspx.designer.cs">
+      <DependentUpon>tier.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Report\daily_report.aspx.cs">
+      <DependentUpon>daily_report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Report\daily_report.aspx.designer.cs">
+      <DependentUpon>daily_report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Report\game_report.aspx.cs">
+      <DependentUpon>game_report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Report\game_report.aspx.designer.cs">
+      <DependentUpon>game_report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Report\lucky_report.aspx.cs">
+      <DependentUpon>lucky_report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Report\lucky_report.aspx.designer.cs">
+      <DependentUpon>lucky_report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Report\market_report.aspx.cs">
+      <DependentUpon>market_report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Report\market_report.aspx.designer.cs">
+      <DependentUpon>market_report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Report\provider_report.aspx.cs">
+      <DependentUpon>provider_report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Report\provider_report.aspx.designer.cs">
+      <DependentUpon>provider_report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Report\red_report.aspx.cs">
+      <DependentUpon>red_report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Report\red_report.aspx.designer.cs">
+      <DependentUpon>red_report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Report\tournament_report.aspx.cs">
+      <DependentUpon>tournament_report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Report\tournament_report.aspx.designer.cs">
+      <DependentUpon>tournament_report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Report\wl_report.aspx.cs">
+      <DependentUpon>wl_report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Report\wl_report.aspx.designer.cs">
+      <DependentUpon>wl_report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Report\wl_report_support.aspx.cs">
+      <DependentUpon>wl_report_support.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Report\wl_report_support.aspx.designer.cs">
+      <DependentUpon>wl_report_support.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Tournament\tournament_latest.aspx.cs">
+      <DependentUpon>tournament_latest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Tournament\tournament_latest.aspx.designer.cs">
+      <DependentUpon>tournament_latest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Tournament\tournment_logs.aspx.cs">
+      <DependentUpon>tournment_logs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Tournament\tournment_logs.aspx.designer.cs">
+      <DependentUpon>tournment_logs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Tournament\tournment_prize.aspx.cs">
+      <DependentUpon>tournment_prize.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Tournament\tournment_prize.aspx.designer.cs">
+      <DependentUpon>tournment_prize.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Tournament\tournment_rules.aspx.cs">
+      <DependentUpon>tournment_rules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Tournament\tournment_rules.aspx.designer.cs">
+      <DependentUpon>tournment_rules.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Menu_Account\password_change.aspx.cs">
+      <DependentUpon>password_change.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_Account\password_change.aspx.designer.cs">
+      <DependentUpon>password_change.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Menu_MemberManagement\company_list.aspx.cs">
+      <DependentUpon>company_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_MemberManagement\company_list.aspx.designer.cs">
+      <DependentUpon>company_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_MemberManagement\company_add.aspx.cs">
+      <DependentUpon>company_add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_MemberManagement\company_add.aspx.designer.cs">
+      <DependentUpon>company_add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.designer.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewSwitcher.ascx.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.designer.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>63414</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:63414/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

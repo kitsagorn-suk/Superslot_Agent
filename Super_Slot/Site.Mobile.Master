@@ -1,0 +1,923 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Mobile.master.cs" Inherits="Super_Slot.Site_Mobile" %>
+
+<%@ Register Src="~/ViewSwitcher.ascx" TagPrefix="friendlyUrls" TagName="ViewSwitcher" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1480" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Agent Super Slot</title>
+    <link rel="icon" href="img/logo.png" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/pagination.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker3.css" />
+    <link rel="stylesheet" href="css/marquee.css" />
+    <link href="css/w3.css" rel="stylesheet" />
+
+    <style>
+        /* width */
+        .side-nav::-webkit-scrollbar {
+            height: 6px;
+            width: 6px;
+        }
+
+        /* Track */
+        .side-nav::-webkit-scrollbar-track {
+            border-radius: 0;
+            background: #EFF0F2;
+        }
+
+        9
+        /* Handle */
+        .side-nav::-webkit-scrollbar-thumb {
+            background: #46220E;
+        }
+
+        /* Handle on hover */
+        .side-nav::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .side-nav::-webkit-scrollbar-button {
+            background: #fff;
+            width: 0;
+            height: 0;
+        }
+    </style>
+</head>
+<body class="fixed-sn">
+    <div id="myModalLoad" class="modal" data-backdrop="static" data-keyboard="false" style="z-index: 9999">
+        <div class="d-flex justify-content-center" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #CFA137 !important;">
+            <div class="spinner-border" role="status" style="width: 7rem; height: 7rem; font-size: 4rem;">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+    <form runat="server">
+        <div class="wrapper container">
+            <header>
+                <!-- Header navigation -->
+                <nav class="navbar navbar-light white p-0 fixed-top">
+                    <a class="navbar-brand logo">
+                        <img src="../img/logo2.png" id="imgLogin">
+                    </a>
+                    <div class="navbar-panel-box">
+                        <div class="navbar-panel d-flex justify-content-between">
+                            <div class="d-flex align-items-center nav-top" style="margin-left: 10px;">
+                                <div class="row">
+                                    <a class="nav-link overflow ellipsis" aria-expanded="false" id="nameLogin" href="/Menu_Account/profile.aspx">
+                                        <i class="far fa-user-circle"></i>
+                                    </a>
+                                    <a class="nav-link" aria-expanded="false" id="position" style="margin-left: 1rem;">
+                                        <i class="far fa-user-circle"></i>
+                                    </a>
+                                    <a class="nav-link" aria-expanded="false" id="balance" style="margin-left: 1rem;">
+                                        <i class="far fa-user-circle"></i>
+                                    </a>
+                                    <a class="nav-link" aria-expanded="false" id="timezone" style="margin-left: 1rem;">
+                                        <i class="far fa-clock"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center nav-top-links">
+                                <a id="txtLan">
+                                    <img src="../img/Flag/usa.png" style="width: 20px; margin-right: .4rem;" />English
+                                </a>
+                                <div id="divblock" style="display: none;">
+                                    <div style="border-bottom: 1px #ddd solid; padding: 3px;">
+                                        <a onclick="SetLanguage('Thai');">
+                                            <img src="../img/Flag/thailand.png" style="width: 20px;" />&emsp;ไทย
+                                        </a>
+                                    </div>
+                                    <div style="border-bottom: 1px #ddd solid; padding: 3px;">
+                                        <a onclick="SetLanguage('English');">
+                                            <img src="../img/Flag/usa.png" style="width: 20px;" />&emsp;English
+                                        </a>
+                                    </div>
+                                    <div style="padding: 3px;">
+                                        <a onclick="SetLanguage('Chinese');">
+                                            <img src="../img/Flag/china.png" style="width: 20px;" />&emsp;中文
+                                        </a>
+                                    </div>
+                                </div>
+                                <a href="#" class="nav-link" set-lan="html:Guide"></a>
+                                <a href="#" class="nav-link" set-lan="html:Mobile Version"></a>
+                                <a class="nav-link" set-lan="html:Log Out" onclick="LogOut();"></a>
+                            </div>
+                        </div>
+                        <div class="simple-marquee-container">
+                            <marquee class="marqueetxt" style="color: #fff; padding-top: 3px;"></marquee>
+                            <%--<div class="marquee">
+                                <ul class="marquee-content-items">
+                                </ul>
+                            </div>--%>
+                        </div>
+                    </div>
+                </nav>
+                <!--/. Header navigation -->
+                <!-- Sidebar navigation -->
+                <div id="slide-out" class="side-nav white fixed wide side-nav-light z-depth-0" style="overflow: auto;" onscroll="SetScrollMaster()">
+                    <ul class="custom-scrollbar_">
+                        <!-- Side navigation links -->
+                        <li>
+                            <div id="ZoneAll">
+                                <ul class="accordion collapsible collapsible-accordion">
+                                    <li id="menuDashboard" class="menuMain">
+                                        <a href="/Menu_Dashboard/dashboard.aspx" class="collapsible-header waves-effect"><i class="sv-slim-icon fas fa-dashboard"></i>
+                                            <label set-lan="text:Dashboard" class="main"></label>
+                                        </a>
+                                    </li>
+                                    <li id="menuAccount" class="menuMain">
+                                        <a class="collapsible-header waves-effect arrow-r">
+                                            <i class="sv-slim-icon far fa-report"></i>
+                                            <label set-lan="text:Account" class="main"></label>
+                                            <i class="fas fa-angle-down rotate-icon"></i>
+                                        </a>
+                                        <div class="collapsible-body">
+                                            <ul>
+                                                <li id="menuProfile"><a href="/Menu_Account/profile.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Profile"></span></a>
+                                                </li>
+                                                <li id="menuPassword"><a href="/Menu_Account/password_change.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Password"></span></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li id="menuMemberManage" class="menuMain">
+                                        <a class="collapsible-header waves-effect arrow-r">
+                                            <i class="sv-slim-icon fas fa-member"></i>
+                                            <label set-lan="text:Management" class="main"></label>
+                                            <i class="fas fa-angle-down rotate-icon"></i>
+                                        </a>
+                                        <div class="collapsible-body">
+                                            <ul>
+                                                <li id="menuShareholderAdd"><a href="/Menu_MemberManagement/company_add.aspx?uname=" class="waves-effect">
+                                                    <span class="sv-normal submain" id="AddItem" set-lan="text:Add Shareholder"></span></a>
+                                                </li>
+                                                <li id="menuMemberAdd"><a href="/Menu_Member/member_add.aspx?uname=" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Add Member"></span></a>
+                                                </li>
+                                                <li id="menuShareholderList"><a href="/Menu_MemberManagement/company_list.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" id="ListItem"></span></a>
+                                                </li>
+                                                <li id="menuSubUserAdd"><a href="/Menu_MemberManagement/sub_user_add.aspx?uname=" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Add Sub User"></span></a>
+                                                </li>
+                                                <li id="menuSubUserList"><a href="/Menu_MemberManagement/sub_accounts.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Sub User List"></span></a>
+                                                </li>
+                                                <li id="menuProviderID"><a href="/Menu_MemberManagement/provider_id.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Provider ID"></span></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li id="menuReport" class="menuMain">
+                                        <a class="collapsible-header waves-effect arrow-r">
+                                            <i class="sv-slim-icon far fa-report"></i>
+                                            <label set-lan="text:Report" class="main"></label>
+                                            <i class="fas fa-angle-down rotate-icon"></i>
+                                        </a>
+                                        <div class="collapsible-body">
+                                            <ul>
+                                                <li id="menuReportWL"><a href="/Menu_Report/wl_report.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:W/L Report"></span></a>
+                                                </li>
+                                                <li id="menuReportGame"><a href="/Menu_Report/game_report.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Game Report"></span></a>
+                                                </li>
+                                                <li id="menuReportProvider"><a href="/Menu_Report/provider_report.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Provider Report"></span></a>
+                                                </li>
+                                                <li id="menuReportRedEnvelope"><a href="/Menu_Report/red_report.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Red Envelope Report"></span></a>
+                                                </li>
+                                                <li id="menuReportMarket"><a href="/Menu_Report/market_report.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Market Report"></span></a>
+                                                </li>
+                                                <li id="menuReportTournament"><a href="/Menu_Report/tournament_report.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Tournament Report"></span></a>
+                                                </li>
+                                                <li id="menuReportDaily"><a href="/Menu_Report/daily_report.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Daily Rewards Report"></span></a>
+                                                </li>
+                                                <li id="menuReportLucky"><a href="/Menu_Report/lucky_report.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Lucky Draw Report"></span></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li id="menuPayment" class="menuMain">
+                                        <a class="collapsible-header waves-effect arrow-r">
+                                            <i class="sv-slim-icon fas fa-payment"></i>
+                                            <label set-lan="text:Payment" class="main"></label>
+                                            <i class="fas fa-angle-down rotate-icon"></i>
+                                        </a>
+                                        <div class="collapsible-body">
+                                            <ul>
+                                                <li id="menuTransfer"><a href="/Menu_Payment/transfer.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Deposit / Withdrawal"></span></a>
+                                                </li>
+                                                <li id="menuTransferHis"><a href="/Menu_Payment/statement.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Statement"></span></a>
+                                                </li>
+                                                <li id="menuDW_Statement"><a href="/Menu_Payment/dw_statement.aspx" class="waves-effect" id="StyleDW_Stament">
+                                                    <span class="sv-normal submain" set-lan="text:Deposit / Withdrawal Statement"></span></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li id="menuAnnouncement" class="menuMain" style="display: none;">
+                                        <a class="collapsible-header waves-effect arrow-r">
+                                            <i class="sv-slim-icon fas fa-payment"></i>
+                                            <label set-lan="text:Announcements" class="main"></label>
+                                            <i class="fas fa-angle-down rotate-icon"></i>
+                                        </a>
+                                        <div class="collapsible-body">
+                                            <ul>
+                                                <li id="menuAnnouncementInfor"><a href="/Menu_Announcement/Announcements.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Announcement Info"></span></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li id="menuMission" class="menuMain" style="display: none;">
+                                        <a class="collapsible-header waves-effect arrow-r">
+                                            <i class="sv-slim-icon fas fa-payment"></i>
+                                            <label set-lan="text:Mission" class="main"></label>
+                                            <i class="fas fa-angle-down rotate-icon"></i>
+                                        </a>
+                                        <div class="collapsible-body">
+                                            <ul>
+                                                <li id="menuMissionInfo"><a href="/Menu_Mission/Mission.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Mission Management"></span></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li id="menuCheck" class="menuMain">
+                                        <a class="collapsible-header waves-effect arrow-r">
+                                            <i class="sv-slim-icon fas fa-payment"></i>
+                                            <label set-lan="text:Stock Mngement" class="main"></label>
+                                            <i class="fas fa-angle-down rotate-icon"></i>
+                                        </a>
+                                        <div class="collapsible-body">
+                                            <ul>
+                                                <li id="menuTransFailed"><a href="/Menu_CheckBalance/transfer_failed.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Transfer"></span></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li id="menuOnlineUser" class="menuMain">
+                                        <a href="/Menu_Online/online_user.aspx" class="collapsible-header waves-effect"><i class="sv-slim-icon far fa-report"></i>
+                                            <label set-lan="text:Online User" class="main"></label>
+                                        </a>
+                                    </li>
+                                    <li id="menuFeedback" class="menuMain">
+                                        <a href="/Menu_Feedback/feedback.aspx" class="collapsible-header waves-effect"><i class="sv-slim-icon far fa-report"></i>
+                                            <label set-lan="text:Feedback" class="main"></label>
+                                        </a>
+                                    </li>
+                                    <li id="menuRedEnvelope" class="menuMain">
+                                        <a class="collapsible-header waves-effect arrow-r">
+                                            <i class="sv-slim-icon fas fa-payment"></i>
+                                            <label class="main" set-lan="text:Red Envelope"></label>
+                                            <i class="fas fa-angle-down rotate-icon"></i>
+                                        </a>
+                                        <div class="collapsible-body">
+                                            <ul>
+                                                <li id="menuTier"><a href="/Menu_RedEnvelope/tier.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Tier"></span></a>
+                                                </li>
+                                                <li id="menuGoal"><a href="/Menu_RedEnvelope/goal.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Goal"></span></a>
+                                                </li>
+                                                <li id="menuReward"><a href="/Menu_RedEnvelope/reward.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Reward"></span></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li id="menuMarket" class="menuMain" style="display: none;">
+                                        <a class="collapsible-header waves-effect arrow-r">
+                                            <i class="sv-slim-icon fas fa-payment"></i>
+                                            <label class="main" set-lan="text:Market"></label>
+                                            <i class="fas fa-angle-down rotate-icon"></i>
+                                        </a>
+                                        <div class="collapsible-body">
+                                            <ul>
+                                                <li id="menuGoal_Market"><a href="/Menu_Market/goal.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Goal"></span></a>
+                                                </li>
+                                                <li id="menuItem"><a href="/Menu_Market/item.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Item"></span></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li id="menuNotification" class="menuMain">
+                                        <a href="/Menu_Notification/notification.aspx" class="collapsible-header waves-effect"><i class="sv-slim-icon far fa-payment"></i>
+                                            <label set-lan="text:Notification" class="main"></label>
+                                        </a>
+                                    </li>
+                                    <li id="menuTournament" class="menuMain">
+                                        <a class="collapsible-header waves-effect arrow-r">
+                                            <i class="sv-slim-icon far fa-report"></i>
+                                            <label set-lan="text:Tournament" class="main"></label>
+                                            <i class="fas fa-angle-down rotate-icon"></i>
+                                        </a>
+                                        <div class="collapsible-body">
+                                            <ul>
+                                                <li id="menuTournament_1"><a href="/Menu_Tournament/tournment_prize.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Tournament Prize"></span></a>
+                                                </li>
+                                                <li id="menuTournament_2"><a href="/Menu_Tournament/tournment_logs.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Tournament Logs"></span></a>
+                                                </li>
+                                                <li id="menuTournament_3"><a href="/Menu_Tournament/tournment_rules.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Tournament Rules"></span></a>
+                                                </li>
+                                                <li id="menuTournament_4"><a href="/Menu_Tournament/tournament_latest.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Tournament Latest"></span></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li id="menuDaily" class="menuMain">
+                                        <a class="collapsible-header waves-effect arrow-r">
+                                            <i class="sv-slim-icon far fa-report"></i>
+                                            <label set-lan="text:Daily Rewards" class="main"></label>
+                                            <i class="fas fa-angle-down rotate-icon"></i>
+                                        </a>
+                                        <div class="collapsible-body">
+                                            <ul>
+                                                <li id="menuDaily_Goal"><a href="/Menu_Daily/goal.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Goal"></span></a>
+                                                </li>
+                                                <li id="menuDaily_Reward"><a href="/Menu_Daily/reward.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Reward"></span></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li id="menuMarketing" class="menuMain">
+                                        <a class="collapsible-header waves-effect arrow-r">
+                                            <i class="sv-slim-icon fas fa-payment"></i>
+                                            <label set-lan="text:Marketing Tools" class="main"></label>
+                                            <i class="fas fa-angle-down rotate-icon"></i>
+                                        </a>
+                                        <div class="collapsible-body">
+                                            <ul>
+                                                <li id="menuMarketingGame"><a href="/Menu_Marketing/Game.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Game"></span></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li id="menuLucky" class="menuMain">
+                                        <a class="collapsible-header waves-effect arrow-r">
+                                            <i class="sv-slim-icon far fa-report"></i>
+                                            <label set-lan="text:Lucky Draw" class="main"></label>
+                                            <i class="fas fa-angle-down rotate-icon"></i>
+                                        </a>
+                                        <div class="collapsible-body">
+                                            <ul>
+                                                <li id="menuLucky_Goal"><a href="/Menu_LuckyDraw/goal.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Goal"></span></a>
+                                                </li>
+                                                <li id="menuLucky_Reward"><a href="/Menu_LuckyDraw/reward.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Reward"></span></a>
+                                                </li>
+                                                <li id="menuLucky_Logs"><a href="/Menu_LuckyDraw/logs.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Lucky Draw Logs"></span></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li onclick="hideOnline();" id="ZoneShowOnline">
+                                        <a id="toggle" class="waves-effect">
+                                            <span set-lan="text:Online" style="color: #fff; float: left;" id="txtOnline"></span>
+                                            <span style="color: #fff; float: left;" id="txtNumOnline"></span>
+                                            <i class="sv-slim-icon fas fa-angle-double-left"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="ZoneSupport">
+                                <ul class="accordion collapsible collapsible-accordion">
+                                    <li id="menuAccountSup" class="menuMain">
+                                        <a class="collapsible-header waves-effect arrow-r">
+                                            <i class="sv-slim-icon far fa-report"></i>
+                                            <label set-lan="text:Account" class="main"></label>
+                                            <i class="fas fa-angle-down rotate-icon"></i>
+                                        </a>
+                                        <div class="collapsible-body">
+                                            <ul>
+                                                <li id="menuPasswordSup"><a href="/Menu_Account/password_change.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Password"></span></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li id="menuMemberManageSup" class="menuMain">
+                                        <a class="collapsible-header waves-effect arrow-r">
+                                            <i class="sv-slim-icon fas fa-member"></i>
+                                            <label set-lan="text:Management" class="main"></label>
+                                            <i class="fas fa-angle-down rotate-icon"></i>
+                                        </a>
+                                        <div class="collapsible-body">
+                                            <ul>
+                                                <li id="menuProviderIDSup"><a href="/Menu_MemberManagement/provider_id.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Provider ID"></span></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li id="menuReportSup" class="menuMain">
+                                        <a class="collapsible-header waves-effect arrow-r">
+                                            <i class="sv-slim-icon fas fa-report"></i>
+                                            <label set-lan="text:Report" class="main"></label>
+                                            <i class="fas fa-angle-down rotate-icon"></i>
+                                        </a>
+                                        <div class="collapsible-body">
+                                            <ul>
+                                                <li id="menuReportWLSup"><a href="/Menu_Report/wl_report_support.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:W/L Report"></span></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li id="menuPaymentSup" class="menuMain">
+                                        <a class="collapsible-header waves-effect arrow-r">
+                                            <i class="sv-slim-icon fas fa-payment"></i>
+                                            <label set-lan="text:Payment" class="main"></label>
+                                            <i class="fas fa-angle-down rotate-icon"></i>
+                                        </a>
+                                        <div class="collapsible-body">
+                                            <ul>
+                                                <li id="menuPaymentDWSup"><a href="/Menu_Payment/dw_statement_support.aspx" class="waves-effect" id="StyleDW_Stament_Sup">
+                                                    <span class="sv-normal submain" set-lan="text:Deposit / Withdrawal Statement"></span></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!--/. Side navigation links -->
+                    </ul>
+                    <div class="sidenav-bg rgba-white-strong"></div>
+                </div>
+                <!--/. Sidebar navigation -->
+            </header>
+            <main>
+                <div class="body-content">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </main>
+        </div>
+    </form>
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="../js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="../js/mdb.min.js"></script>
+    <%--<script type="text/javascript" src="../js/jquery-ui.js"></script>--%>
+    <script type="text/javascript" src="../js/bootstrap-datepicker.min.js"></script>
+    <!--<script type="text/javascript" src="../js/marquee.js"></script>
+      <script type="text/javascript" src="../js/dist/compiled-4.7.4.min.js"></script>-->
+    <script src="../js/highcharts.js"></script>
+    <script src="../js/series-label.js"></script>
+    <script src="../js/exporting.js"></script>
+    <script src="../js/export-data.js"></script>
+    <script src="../js/accessibility.js"></script>
+    <!-- ACE core JavaScript -->
+    <script type="text/javascript" src="../js/ace.min.js"></script>
+    <!-- Language core JavaScript -->
+    <script type="text/javascript" src="../js/language_Login.js"></script>
+    <script>
+        var apiURL = '<%=ConfigurationManager.AppSettings["apiURL"] %>';
+        $(document).ready(function () {
+            $('#divblock').hide();
+            $('#txtLan').click(function (e) {
+                e.stopPropagation();
+                $('#divblock').slideToggle();
+            });
+            $('#divblock').click(function (e) {
+                e.stopPropagation();
+            });
+            $(document).click(function () {
+                $('#divblock').slideUp();
+            });
+
+            getProfileSiteMaster();
+            if (localStorage.getItem("Position") != "SUPPORT") {
+                if (localStorage.getItem("Status_UserOnline") != "OFF") {
+                    getOnlineUser();
+                }
+                else {
+                    document.getElementById("ZoneShowOnline").style.display = "none";
+                }
+            }
+
+            if (localStorage.getItem("Language") == "Thai") {
+                $("#txtLan").html("<img src='../img/Flag/thailand.png' style='width: 20px; margin-right: .4rem;' />ไทย");
+            }
+            else if (localStorage.getItem("Language") == "English") {
+                $('#StyleDW_Stament').css('height', '10%');
+                $('#StyleDW_Stament_Sup').css('height', '10%');
+                $("#txtLan").html("<img src='../img/Flag/usa.png' style='width: 20px; margin-right: .4rem;' />English");
+            }
+            else if (localStorage.getItem("Language") == "Chinese") {
+                $("#txtLan").html("<img src='../img/Flag/china.png' style='width: 20px; margin-right: .4rem;' />中文");
+            }
+
+            var m = new Date();
+            var dateString = m.getUTCFullYear() + "/" + (m.getUTCMonth() + 1) + "/" + m.getUTCDate() + " " + m.getUTCHours() + ":" + m.getUTCMinutes() + ":" + m.getUTCSeconds();
+            var thaiTime = m.toLocaleString("en-US", { timeZone: "Asia/Bangkok" });
+            thaiTime = new Date(thaiTime);
+            var txtthaiTime = ("0" + thaiTime.getDate()).slice(-2) + "/" + ("0" + (thaiTime.getMonth() + 1)).slice(-2) + "/" + ("0" + thaiTime.getFullYear()).slice(-2) + " " + ("0" + thaiTime.getHours()).slice(-2) + ":" + ("0" + thaiTime.getMinutes()).slice(-2) + ":" + ("0" + thaiTime.getSeconds()).slice(-2);
+            $("#timezone").html("<i class='far fa-clock'></i>&nbsp;" + txtthaiTime + " GMT+7");
+
+            if (localStorage.getItem("Position") == "AMB") {
+                $('#menuSubUserAdd , #menuSubUserList').css('display', 'none');
+            }
+            if (localStorage.getItem("Position") == "COMPANY" && localStorage.getItem("UserType") == "main") {
+                $('#menuMemberAdd').css('display', 'none');
+                $('#menuMarket').css('display', 'block');
+            }
+            if (localStorage.getItem("Position") == "COMPANY" && localStorage.getItem("UserType") == "sub") {
+                $('#menuMemberAdd').css('display', 'none');
+                $('#menuMarket').css('display', 'block');
+            }
+            if (localStorage.getItem("Position") == "SH_HOLDER") {
+                $('#menuMemberAdd').css('display', 'none');
+            }
+            if (localStorage.getItem("Position") == "SUPPORT") {
+                document.getElementById("ZoneAll").style.display = "none";
+                document.getElementById("ZoneSupport").style.display = "block";
+            } else {
+                document.getElementById("ZoneAll").style.display = "block";
+                document.getElementById("ZoneSupport").style.display = "none";
+            }
+
+            if (localStorage.getItem("Status_Dashboard") == "OFF") {
+                $('#menuDashboard').remove();
+            }
+            if (localStorage.getItem("Status_Account") == "OFF") {
+                $('#menuAccount').remove();
+            }
+            else if (localStorage.getItem("Status_Account") == "VIEW") {
+                $('#menuPassword').remove();
+            }
+
+            if (localStorage.getItem("Status_Member") == "OFF") {
+                $('#menuMemberManage').remove();
+            } else if (localStorage.getItem("Status_Member") == "VIEW") {
+                $('#menuShareholderAdd , #menuMemberAdd').remove();
+            }
+
+            if (localStorage.getItem("Status_Report") == "OFF") {
+                $('#menuReport').remove();
+            }
+
+            if (localStorage.getItem("Status_Payment") == "OFF") {
+                $('#menuPayment').remove();
+            }
+
+            if (localStorage.getItem("Status_Announcement") == "OFF") {
+                $('#menuAnnouncement').remove();
+            }
+
+            if (localStorage.getItem("Status_Mission") == "OFF") {
+                $('#menuMission').remove();
+            }
+
+            if (localStorage.getItem("Status_StockManagement") == "OFF") {
+                $('#menuCheck').remove();
+            }
+
+            if (localStorage.getItem("Status_UserOnline") == "OFF") {
+                $('#menuOnlineUser').remove();
+            }
+
+            if (localStorage.getItem("Status_FeedBack") == "OFF") {
+                $('#menuFeedback').remove();
+            }
+
+            if (localStorage.getItem("Status_RandomJackpot") == "OFF" || localStorage.getItem("Status_RandomJackpot") == "") {
+                $('#menuRedEnvelope').remove();
+            }
+
+            if (localStorage.getItem("Status_Market") == "OFF" || localStorage.getItem("Status_Market") == "") {
+                $('#menuMarket').remove();
+            }
+
+            if (localStorage.getItem("Status_Notification") == "OFF" || localStorage.getItem("Status_Notification") == "") {
+                $('#menuNotification').remove();
+            }
+
+            if (localStorage.getItem("Status_Tournament") == "OFF" || localStorage.getItem("Status_Tournament") == "") {
+                $('#menuTournament').remove();
+            }
+
+            if (localStorage.getItem("Status_DailyReward") == "OFF" || localStorage.getItem("Status_DailyReward") == "") {
+                $('#menuDaily').remove();
+            }
+
+            if (localStorage.getItem("Status_MarketingTools") == "OFF" || localStorage.getItem("Status_MarketingTools") == "") {
+                $('#menuMarketing').remove();
+            }
+
+            if (localStorage.getItem("Status_Lotto") == "OFF" || localStorage.getItem("Status_Lotto") == "") {
+                $('#menuLucky').remove();
+            }
+
+            setInterval(function () {
+                var m = new Date();
+                var dateString = m.getUTCFullYear() + "/" + (m.getUTCMonth() + 1) + "/" + m.getUTCDate() + " " + m.getUTCHours() + ":" + m.getUTCMinutes() + ":" + m.getUTCSeconds();
+                var thaiTime = m.toLocaleString("en-US", { timeZone: "Asia/Bangkok" });
+                thaiTime = new Date(thaiTime);
+                var txtthaiTime = ("0" + thaiTime.getDate()).slice(-2) + "/" + ("0" + (thaiTime.getMonth() + 1)).slice(-2) + "/" + ("0" + thaiTime.getFullYear()).slice(-2) + " " + ("0" + thaiTime.getHours()).slice(-2) + ":" + ("0" + thaiTime.getMinutes()).slice(-2) + ":" + ("0" + thaiTime.getSeconds()).slice(-2);
+                $("#timezone").html("<i class='far fa-clock'></i>&nbsp;" + txtthaiTime + " GMT+7");
+            }, 1000);
+
+            SetLan(localStorage.getItem("Language"));
+        });
+
+        function SetScrollMaster() {
+            var elmnt = document.getElementById("slide-out");
+            var y = elmnt.scrollTop;
+            if (y != 0 || y > 0) {
+                var Check = document.documentElement.clientHeight / 2;
+                if (y > Check) {
+                    elmnt.scrollTo(0, Check);
+                }
+                document.getElementById("toggle").style.bottom = "-" + y + "px";
+            }
+        }
+
+        const getProfileSiteMaster = async () => {
+            const requestAwait = await fetchDataSite(`${apiURL}/v1/user/profile`, 'GET', "include", {})
+            const response = await requestAwait.json()
+            if (response.messageCode == 0000 || response.messageCode == null) {
+                localStorage.setItem("Credit", response.data.credit);
+                //window.location.href = "/Menu_Dashboard/dashboard.aspx";
+                //$("#myModalLoad").modal('hide');
+                var txtShow = "";
+                document.getElementById('nameLogin').innerHTML = "<i class='far fa-user-circle'></i>" + response.data.username;
+                $('#nameLogin').prop('title', response.data.username);
+                if (localStorage.getItem("Position") == "AMB") {
+                    $("#menuAnnouncement, #menuMission").css("display", "block");
+                    txtShow = "AMB";
+                    //document.getElementById("AddItem").setAttribute("set-lan", "text:Add Company");
+                    document.getElementById("ListItem").setAttribute("set-lan", "text:Company List");
+                }
+                else if (localStorage.getItem("Position") == "COMPANY" && localStorage.getItem("UserType") == "main") {
+                    $("#menuAnnouncement, #menuMission").css("display", "block");
+                    txtShow = "Company";
+
+                    if (localStorage.getItem("Status_Member") != "OFF") {
+                        document.getElementById("ListItem").setAttribute("set-lan", "text:Shareholder List");
+                    }
+                    if (localStorage.getItem("Status_Member") == "EDIT") {
+                        document.getElementById("AddItem").setAttribute("set-lan", "text:Add Shareholder");
+                    }
+                    //document.getElementById("AddItem").setAttribute("set-lan", "text:Add Shareholder");
+                    //document.getElementById("ListItem").setAttribute("set-lan", "text:Shareholder List");
+                }
+                else if (localStorage.getItem("Position") == "SH_HOLDER") {
+                    txtShow = "Shareholder";
+
+                    if (localStorage.getItem("Status_Member") != "OFF") {
+                        document.getElementById("ListItem").setAttribute("set-lan", "text:Agent List");
+                    }
+                    if (localStorage.getItem("Status_Member") == "EDIT") {
+                        document.getElementById("AddItem").setAttribute("set-lan", "text:Add Agent");
+                    }
+                    //document.getElementById("AddItem").setAttribute("set-lan", "text:Add Agent");
+                    //document.getElementById("ListItem").setAttribute("set-lan", "text:Agent List");
+                }
+                else if (localStorage.getItem("Position") == "AGENT") {
+                    $("#menuAnnouncement").css("display", "block");
+                    txtShow = "Agent";
+
+                    if (localStorage.getItem("Status_Member") != "OFF") {
+                        document.getElementById("ListItem").setAttribute("set-lan", "text:Agents & Members List");
+                    }
+                    if (localStorage.getItem("Status_Member") == "EDIT") {
+                        document.getElementById("AddItem").setAttribute("set-lan", "text:Add Agent");
+                    }
+                    //document.getElementById("AddItem").setAttribute("set-lan", "text:Add Agent");
+                    //document.getElementById("ListItem").setAttribute("set-lan", "text:Agents & Members List");
+                }
+                else if (localStorage.getItem("Position") == "COMPANY" && localStorage.getItem("UserType") == "sub") {
+                    $("#menuAnnouncement, #menuMission").css("display", "block");
+                    txtShow = "Member";
+
+                    if (localStorage.getItem("Status_Member") != "OFF") {
+                        document.getElementById("ListItem").setAttribute("set-lan", "text:Shareholder List");
+                    }
+                    if (localStorage.getItem("Status_Member") == "EDIT") {
+                        document.getElementById("AddItem").setAttribute("set-lan", "text:Add Shareholder");
+                    }
+                    //document.getElementById("AddItem").setAttribute("set-lan", "text:Add Shareholder");
+                    //document.getElementById("ListItem").setAttribute("set-lan", "text:Shareholder List");
+                }
+                else if (localStorage.getItem("Position") == "SUPPORT") {
+                    txtShow = "Support";
+                    document.getElementById("balance").style.display = "none";
+                }
+
+                if (localStorage.getItem("UserType") == "sub") {
+                    $('#menuSubUserAdd, #menuSubUserList').css('display', 'none');
+                }
+
+                document.getElementById('position').innerHTML = "<i class='fas fa-briefcase ee'></i>&nbsp;<span set-lan='text:" + txtShow + "'></span>";
+                document.getElementById('balance').innerHTML = "<i class='far fa-money-bill-alt'></i>&nbsp;" + response.data.credit.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+                SetLan(localStorage.getItem("Language"));
+            }
+            else if (response.messageCode == 8004) {
+                document.getElementById('lbAlert').innerHTML = response.messageDescription;
+                $("#myModalLoad").modal('hide');
+                $('#modalAlert').modal('show');
+                window.location.href = "/Login.aspx";
+            }
+            else {
+                document.getElementById('lbAlert').innerHTML = response.messageDescription;
+                $("#myModalLoad").modal('hide');
+                $('#modalAlert').modal('show');
+            }
+        }
+
+        const getOnlineUser = async () => {
+            const requestAwait = await fetchDataSite(`${apiURL}/v1/online_user`, 'GET', "include", {})
+            const response = await requestAwait.json()
+            if (response.messageCode == 0000 || response.messageCode == null) {
+                var Sum = response.data.sum;
+                if (Sum != 0 || Sum != "" || Sum != null) {
+                    $('#txtNumOnline').text(Sum.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'));
+                }
+                else {
+                    $('#txtNumOnline').text("-");
+                }
+            }
+            else if (response.messageCode == 8004) {
+                document.getElementById('lbAlert').innerHTML = response.messageDescription;
+                $("#myModalLoad").modal('hide');
+                $('#modalAlert').modal('show');
+                window.location.href = "/Login.aspx";
+            }
+            else {
+                document.getElementById('lbAlert').innerHTML = response.messageDescription;
+                $("#myModalLoad").modal('hide');
+                $('#modalAlert').modal('show');
+            }
+        }
+
+        function SetLanguage(ele) {
+            SetLan(ele);
+            if (ele == "Thai") {
+                $("#txtLan").html("<img src='../img/Flag/thailand.png' style='width: 20px; margin-right: .4rem;' />ไทย");
+            }
+            else if (ele == "English") {
+                $('#StyleDW_Stament').css('height', '10%');
+                $('#StyleDW_Stament_Sup').css('height', '10%');
+                $("#txtLan").html("<img src='../img/Flag/usa.png' style='width: 20px; margin-right: .4rem;' />English");
+            }
+            else if (ele == "Chinese") {
+                $("#txtLan").html("<img src='../img/Flag/china.png' style='width: 20px; margin-right: .4rem;' />中文");
+            }
+
+            localStorage.setItem("Language", ele);
+
+            $('#divblock').slideUp();
+
+            var path = window.location.pathname;
+            var page = path.split("/").pop();
+            if (page == "dashboard") {
+                getDashboard();
+            }
+            else if (page == "Announcements") {
+                postAnnounce();
+            }
+            else if (page == "Mission") {
+                GetData();
+            }
+            else if (page == "game_report") {
+                LanSelect();
+            }
+        }
+
+        function LogOut() {
+            localStorage.clear();
+            postLogOut();
+        }
+
+        var zoneonline = false;
+        function hideOnline() {
+            if (zoneonline == true) {
+                $("#txtOnline").css("display", "initial");
+                zoneonline = false;
+            }
+            else {
+                $("#txtOnline").css("display", "none");
+                zoneonline = true;
+            }
+        }
+
+        function clsAlphaNoOnly(e) {  // Accept only alpha numerics, no special characters 
+            var regex = new RegExp("^[a-zA-Z0-9]+$");
+            var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+            if (regex.test(str)) {
+                return true;
+            }
+
+            e.preventDefault();
+            return false;
+        }
+
+        function clsAlphaTHNoOnly(e) {  // Accept only alpha numerics, no special characters 
+            var regex = new RegExp("^[ก-๏a-zA-Z0-9]+$");
+            var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+            if (regex.test(str)) {
+                return true;
+            }
+
+            e.preventDefault();
+            return false;
+        }
+
+        function Comma(Num) { //function to add commas to textboxes
+            if (parseInt(Num) != 0) {
+                Num += '';
+                Num = Num.replace(',', ''); Num = Num.replace(',', ''); Num = Num.replace(',', '');
+                Num = Num.replace(',', ''); Num = Num.replace(',', ''); Num = Num.replace(',', '');
+                x = Num.split('.');
+                x1 = x[0];
+                x2 = x.length > 1 ? '.' + x[1] : '';
+                var rgx = /(\d+)(\d{3})/;
+                while (rgx.test(x1))
+                    x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                return x1 + x2;
+            }
+            else if (parseInt(Num) == 0) {
+                return 0;
+            }
+            else {
+                return "";
+            }
+        }
+
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }
+
+        const fetchDataSite = (url = "", method = "GET", credentials = "include", body = {}) => {
+            if (method == "GET") {
+                return fetch(url, {
+                    method,
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials,
+                })
+            }
+            return fetch(url, {
+                method,
+                headers: { 'Content-Type': 'application/json' },
+                credentials,
+                body: JSON.stringify(body) // body data type must match "Content-Type" header
+            })
+        }
+
+        const postLogOut = async () => {
+            const requestAwait = await fetchDataSite(`${apiURL}/v1/logout`, 'POST', "include", {})
+            const response = await requestAwait.json()
+            if (response.messageCode == 0000 || response.messageCode == null) {
+                window.location.href = "/Login.aspx";
+            }
+        }
+
+    </script>
+    <asp:ContentPlaceHolder ID="MainScript" runat="server"></asp:ContentPlaceHolder>
+</body>
+</html>
+

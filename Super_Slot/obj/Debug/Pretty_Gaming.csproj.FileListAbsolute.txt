@@ -1,0 +1,242 @@
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\ApplicationInsights.config
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\roslyn\csc.exe
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\roslyn\System.Collections.Immutable.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\roslyn\System.Reflection.Metadata.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\roslyn\vbc.exe
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\roslyn\VBCSCompiler.exe
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\roslyn\VBCSCompiler.exe.config
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Pretty_Gaming.dll.config
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Pretty_Gaming.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Pretty_Gaming.pdb
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Antlr3.Runtime.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\AspNet.ScriptManager.bootstrap.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\AspNet.ScriptManager.jQuery.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\EntityFramework.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\EntityFramework.SqlServer.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.AI.Agent.Intercept.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.AI.DependencyCollector.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.AI.PerfCounterCollector.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.AI.ServerTelemetryChannel.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.AI.Web.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.AI.WindowsServer.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.ApplicationInsights.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.AspNet.FriendlyUrls.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.AspNet.Identity.Core.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.AspNet.Identity.Owin.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.Owin.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.Owin.Host.SystemWeb.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.Owin.Security.Cookies.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.Owin.Security.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.Owin.Security.Facebook.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.Owin.Security.Google.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.Owin.Security.OAuth.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.Owin.Security.Twitter.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.ScriptManager.MSAjax.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.ScriptManager.WebForms.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.Web.Infrastructure.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Newtonsoft.Json.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Owin.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\System.Web.Optimization.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\System.Web.Providers.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\WebGrease.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.AI.DependencyCollector.xml
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.AI.ServerTelemetryChannel.xml
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.AI.Web.xml
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.AI.WindowsServer.xml
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.ApplicationInsights.xml
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\System.Web.Optimization.xml
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Antlr3.Runtime.pdb
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Newtonsoft.Json.xml
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.AspNet.FriendlyUrls.xml
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\EntityFramework.xml
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\EntityFramework.SqlServer.xml
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.AspNet.Identity.Core.xml
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.AspNet.Identity.Owin.xml
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\System.Web.Providers.xml
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.Owin.xml
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.Owin.Host.SystemWeb.xml
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.Owin.Security.xml
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.Owin.Security.Facebook.xml
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.Owin.Security.Cookies.xml
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.Owin.Security.Google.xml
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.Owin.Security.Twitter.xml
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\Microsoft.Owin.Security.OAuth.xml
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\obj\Debug\Pretty_Gaming.dll
+c:\users\neatn\documents\visual studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\obj\Debug\Pretty_Gaming.pdb
+C:\Users\neatn\Documents\Visual Studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\RestSharp.dll
+C:\Users\neatn\Documents\Visual Studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\System.Net.Sockets.dll
+C:\Users\neatn\Documents\Visual Studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\bin\RestSharp.xml
+C:\Users\neatn\Documents\Visual Studio 2015\Projects\Pretty_Gaming\Pretty_Gaming\obj\Debug\Pretty_Gaming.csprojResolveAssemblyReference.cache
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\ApplicationInsights.config
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\roslyn\csc.exe
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\roslyn\System.Collections.Immutable.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\roslyn\System.Reflection.Metadata.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\roslyn\vbc.exe
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\roslyn\VBCSCompiler.exe
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\roslyn\VBCSCompiler.exe.config
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Pretty_Gaming.dll.config
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Pretty_Gaming.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Pretty_Gaming.pdb
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Antlr3.Runtime.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\AspNet.ScriptManager.bootstrap.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\AspNet.ScriptManager.jQuery.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\EntityFramework.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\EntityFramework.SqlServer.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AI.Agent.Intercept.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AI.DependencyCollector.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AI.Web.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AI.WindowsServer.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.ApplicationInsights.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AspNet.Identity.Core.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.Cookies.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.Facebook.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.Google.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.OAuth.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.Twitter.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.ScriptManager.WebForms.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Web.Infrastructure.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Newtonsoft.Json.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Owin.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\System.Web.Optimization.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\System.Web.Providers.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\WebGrease.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AI.DependencyCollector.xml
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AI.Web.xml
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AI.WindowsServer.xml
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.ApplicationInsights.xml
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\System.Web.Optimization.xml
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Antlr3.Runtime.pdb
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Newtonsoft.Json.xml
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\EntityFramework.xml
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\EntityFramework.SqlServer.xml
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AspNet.Identity.Core.xml
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\System.Web.Providers.xml
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.xml
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.xml
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.Facebook.xml
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.Cookies.xml
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.Google.xml
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.Twitter.xml
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.OAuth.xml
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\obj\Debug\Pretty_Gaming.dll
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\obj\Debug\Pretty_Gaming.pdb
+C:\NewPretty\Agent_Pretty\Pretty_Gaming\obj\Debug\Pretty_Gaming.csprojResolveAssemblyReference.cache
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\ApplicationInsights.config
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\roslyn\csc.exe
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\roslyn\vbc.exe
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\roslyn\VBCSCompiler.exe
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Pretty_Gaming.dll.config
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Pretty_Gaming.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Pretty_Gaming.pdb
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Antlr3.Runtime.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\AspNet.ScriptManager.bootstrap.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\AspNet.ScriptManager.jQuery.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\EntityFramework.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\EntityFramework.SqlServer.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AI.Web.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.ApplicationInsights.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.ScriptManager.WebForms.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Newtonsoft.Json.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Owin.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\System.Web.Optimization.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\System.Web.Providers.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\WebGrease.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AI.Web.xml
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.ApplicationInsights.xml
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\System.Web.Optimization.xml
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Antlr3.Runtime.pdb
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Newtonsoft.Json.xml
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\EntityFramework.xml
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\EntityFramework.SqlServer.xml
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\System.Web.Providers.xml
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.xml
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.xml
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\obj\Debug\Pretty_Gaming.csprojAssemblyReference.cache
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\obj\Debug\Pretty_Gaming.csproj.CoreCompileInputs.cache
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\obj\Debug\Pretty_Gaming.csproj.CopyComplete
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\obj\Debug\Pretty_Gaming.dll
+C:\Users\molim\Desktop\Agent_Pretty\Agent_Pretty\Pretty_Gaming\obj\Debug\Pretty_Gaming.pdb
