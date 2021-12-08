@@ -180,438 +180,745 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainScript" runat="server">
     <script src="../js/pagination.js"></script>
     <script type="text/javascript">      
-    var typeTime = "Day";
-    var Check_Enter = "";
+        var typeTime = "Day";
+        var Check_Enter = "";
 
-    $(document).ready(function () {
-        $("#menuReport , #menuReport > a").addClass("active");
-        $("#menuReport > div").css("display", "block");
+        $(document).ready(function () {
+            $("#menuReport , #menuReport > a").addClass("active");
+            $("#menuReport > div").css("display", "block");
 
-        $('body').on('keyup', function (evt) {
-            if (evt.keyCode == 13) {
-                if (Check_Enter == "Enter") {
-                    Check_Enter = "";
+            $('body').on('keyup', function (evt) {
+                if (evt.keyCode == 13) {
+                    if (Check_Enter == "Enter") {
+                        Check_Enter = "";
+                    }
+                    else {
+                        evt.preventDefault()
+                        Search_Click();
+                    }
                 }
-                else {
-                    evt.preventDefault()
-                    Search_Click();
-                }
-            }
+            });
+
+            DateNow();
+            GetData('1', '', '');
+            SetLan(localStorage.getItem("Language"));
         });
 
-        DateNow();
-        GetData('1', '', '');
-        SetLan(localStorage.getItem("Language"));
-    });
-
-    function Key_Enter(event) {
-        var x = event.which || event.keyCode;
-        if (x == 13) {
-            Check_Enter = "Enter";
-            event.preventDefault()
-            Search_Click();
-        }
-    }
-
-    function DateNow() {
-        var date = new Date();
-        var dateSetSTART = date.getFullYear() + "-" + ("0" + (date.getMonth() + 1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2);
-        date.setDate(date.getDate() + 1);
-        var dateSetEND = date.getFullYear() + "-" + ("0" + (date.getMonth() + 1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2);
-        $("#startdate").val(dateSetSTART);
-        $("#todate").val(dateSetEND);
-        $("#starttime").val('00:00');
-        $("#totime").val('00:00');
-    }
-
-    function btnTime(type) {
-        var start = "";
-        var end = "";
-        var date = new Date();
-
-        if (type == "Today") {
-            var date2 = new Date(date);
-            date2.setDate(date2.getDate() + 1);
-            var endDate = ("0" + date2.getDate()).slice(-2) + "/" + ("0" + (date2.getMonth() + 1)).slice(-2) + "/" + date2.getFullYear();
-            date = ("0" + date.getDate()).slice(-2) + "/" + ("0" + (date.getMonth() + 1)).slice(-2) + "/" + date.getFullYear();
-
-            $("#startdate").val(GetFormattedDate(date));
-            $("#todate").val(GetFormattedDate(endDate));
-            start = GetFormattedDate(date);
-            end = GetFormattedDate(endDate);
-
-            typeTime = "Day";
-        }
-        else if (type == "Yesterday") {
-            var todayTimeStamp = +new Date;
-            var oneDayTimeStamp = 1000 * 60 * 60 * 24;
-            var diff = todayTimeStamp - oneDayTimeStamp;
-            var yesterdayDate = new Date(diff);
-            var yesterdayString = ("0" + yesterdayDate.getDate()).slice(-2) + "/" + ("0" + (yesterdayDate.getMonth() + 1)).slice(-2) + "/" + yesterdayDate.getFullYear();//yesterdayDate.getFullYear() + '-' + (yesterdayDate.getMonth() + 1) + '-' + yesterdayDate.getDate();
-
-            var date2 = new Date(yesterdayDate);
-            date2.setDate(date2.getDate() + 1);
-            var endDate = ("0" + date2.getDate()).slice(-2) + "/" + ("0" + (date2.getMonth() + 1)).slice(-2) + "/" + date2.getFullYear();//date2.getFullYear() + '-' + (date2.getMonth() + 1) + '-' + date2.getDate();
-
-            $("#startdate").val(GetFormattedDate(yesterdayString));
-            $("#todate").val(GetFormattedDate(endDate));
-            start = GetFormattedDate(yesterdayString);
-            end = GetFormattedDate(endDate);
-
-            typeTime = "Day";
-        }
-        else if (type == "This week") {
-            var GetDay = date.getDay();
-            var firstday, SetDay;
-
-            if (GetDay == 2) {
-                firstday = date.getDate();
-            } else if (GetDay > 2) {
-                SetDay = date.getDay() - 2;
-                firstday = date.getDate() - SetDay;
-            } else if (GetDay < 2) {
-                if (GetDay == 0) {
-                    SetDay = 5 - GetDay;
-                    firstday = date.getDate() - SetDay;
-                } else if (GetDay == 1) {
-                    SetDay = 7 - GetDay;
-                    firstday = date.getDate() - SetDay;
-                }
+        function Key_Enter(event) {
+            var x = event.which || event.keyCode;
+            if (x == 13) {
+                Check_Enter = "Enter";
+                event.preventDefault()
+                Search_Click();
             }
+        }
 
-            var lastday = firstday + 6;
-            var date1 = new Date(date.setDate(firstday));
-            var date2 = new Date(date.setDate(lastday));
+        function DateNow() {
+            var date = new Date();
+            var dateSetSTART = date.getFullYear() + "-" + ("0" + (date.getMonth() + 1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2);
+            date.setDate(date.getDate() + 1);
+            var dateSetEND = date.getFullYear() + "-" + ("0" + (date.getMonth() + 1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2);
+            $("#startdate").val(dateSetSTART);
+            $("#todate").val(dateSetEND);
+            $("#starttime").val('00:00');
+            $("#totime").val('00:00');
+        }
 
-            if (date1 > date2) {
-                date2.setMonth(date2.getMonth() + 1);
+        function btnTime(type) {
+            var start = "";
+            var end = "";
+            var date = new Date();
+
+            if (type == "Today") {
+                var date2 = new Date(date);
+                date2.setDate(date2.getDate() + 1);
+                var endDate = ("0" + date2.getDate()).slice(-2) + "/" + ("0" + (date2.getMonth() + 1)).slice(-2) + "/" + date2.getFullYear();
+                date = ("0" + date.getDate()).slice(-2) + "/" + ("0" + (date.getMonth() + 1)).slice(-2) + "/" + date.getFullYear();
+
+                $("#startdate").val(GetFormattedDate(date));
+                $("#todate").val(GetFormattedDate(endDate));
+                start = GetFormattedDate(date);
+                end = GetFormattedDate(endDate);
+
+                typeTime = "Day";
             }
-            var startDate = ("0" + date1.getDate()).slice(-2) + "/" + ("0" + (date1.getMonth() + 1)).slice(-2) + "/" + date1.getFullYear();
-
-            date2.setDate(date2.getDate() + 1);
-            var endDate = ("0" + date2.getDate()).slice(-2) + "/" + ("0" + (date2.getMonth() + 1)).slice(-2) + "/" + date2.getFullYear();
-
-            $("#startdate").val(GetFormattedDate(startDate));
-            $("#todate").val(GetFormattedDate(endDate));
-            start = GetFormattedDate(startDate);
-            end = GetFormattedDate(endDate);
-
-            typeTime = "Week";
-        }
-        else if (type == "Last week") {
-            var GetDay = date.getDay();
-            var firstday, SetDay;
-
-            if (GetDay == 2) {
-                firstday = date.getDate() - 7;
-            } else if (GetDay > 2) {
-                SetDay = date.getDay() - 2;
-                firstday = (date.getDate() - SetDay) - 7;
-            } else if (GetDay < 2) {
-                if (GetDay == 0) {
-                    SetDay = 5 - GetDay;
-                    firstday = (date.getDate() - SetDay) - 7;
-                } else if (GetDay == 1) {
-                    SetDay = 7 - GetDay;
-                    firstday = (date.getDate() - SetDay) - 7;
-                }
-            }
-
-            var date1 = new Date(date.setDate(firstday));
-            var lastday = date1.getDate() + 6;
-            var date2 = new Date(date.setDate(lastday));
-
-            if (date1 > date2) {
-                date2.setMonth(date2.getMonth() + 1);
-            }
-            var startDate = ("0" + date1.getDate()).slice(-2) + "/" + ("0" + (date1.getMonth() + 1)).slice(-2) + "/" + date1.getFullYear();
-            date2.setDate(date2.getDate() + 1);
-            var endDate = ("0" + date2.getDate()).slice(-2) + "/" + ("0" + (date2.getMonth() + 1)).slice(-2) + "/" + date2.getFullYear();
-            $("#startdate").val(GetFormattedDate(startDate));
-            $("#todate").val(GetFormattedDate(endDate));
-            start = GetFormattedDate(startDate);
-            end = GetFormattedDate(endDate);
-
-            typeTime = "Week";
-        }
-        else if (type == "This month") {
-            var date1 = new Date(date.getFullYear(), date.getMonth(), 1);
-            var date2 = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-            var startDate = ("0" + date1.getDate()).slice(-2) + "/" + ("0" + (date1.getMonth() + 1)).slice(-2) + "/" + date1.getFullYear();
-
-            date2.setDate(date2.getDate() + 1);
-            var endDate = ("0" + date2.getDate()).slice(-2) + "/" + ("0" + (date2.getMonth() + 1)).slice(-2) + "/" + date2.getFullYear();
-            $("#startdate").val(GetFormattedDate(startDate));
-            $("#todate").val(GetFormattedDate(endDate));
-            start = GetFormattedDate(startDate);
-            end = GetFormattedDate(endDate);
-
-            typeTime = "Month";
-        }
-        else if (type == "Last month") {
-            var date1 = new Date(date.getFullYear(), date.getMonth() - 1, 1);
-            var date2 = new Date(date.getFullYear(), date.getMonth(), 0);
-            var startDate = ("0" + date1.getDate()).slice(-2) + "/" + ("0" + (date1.getMonth() + 1)).slice(-2) + "/" + date1.getFullYear();
-
-            date2.setDate(date2.getDate() + 1);
-            var endDate = ("0" + date2.getDate()).slice(-2) + "/" + ("0" + (date2.getMonth() + 1)).slice(-2) + "/" + date2.getFullYear();
-            $("#startdate").val(GetFormattedDate(startDate));
-            $("#todate").val(GetFormattedDate(endDate));
-            start = GetFormattedDate(startDate);
-            end = GetFormattedDate(endDate);
-
-            typeTime = "Month";
-        }
-
-        var Time_S = $("#starttime").val() + ":00";
-        var Time_E = $("#totime").val() + ":00";
-
-        NumPage = 0;
-        Search_Click();
-    }
-
-    function btnTimePN(type) {
-        var startVal = new Date($('#startdate').val());
-        var toVal = new Date($('#todate').val());
-        var start = "";
-        var end = "";
-        var starttime = "";
-        var endtime = "";
-
-        if (typeTime == "Day") {
-            if (type == "Previous") {
-                var todayTimeStamp = startVal;
+            else if (type == "Yesterday") {
+                var todayTimeStamp = +new Date;
                 var oneDayTimeStamp = 1000 * 60 * 60 * 24;
                 var diff = todayTimeStamp - oneDayTimeStamp;
                 var yesterdayDate = new Date(diff);
-                var yesterdayString = yesterdayDate.getFullYear() + "-" + ("0" + (yesterdayDate.getMonth() + 1)).slice(-2) + "-" + ("0" + yesterdayDate.getDate()).slice(-2);
+                var yesterdayString = ("0" + yesterdayDate.getDate()).slice(-2) + "/" + ("0" + (yesterdayDate.getMonth() + 1)).slice(-2) + "/" + yesterdayDate.getFullYear();//yesterdayDate.getFullYear() + '-' + (yesterdayDate.getMonth() + 1) + '-' + yesterdayDate.getDate();
 
                 var date2 = new Date(yesterdayDate);
                 date2.setDate(date2.getDate() + 1);
                 var endDate = ("0" + date2.getDate()).slice(-2) + "/" + ("0" + (date2.getMonth() + 1)).slice(-2) + "/" + date2.getFullYear();//date2.getFullYear() + '-' + (date2.getMonth() + 1) + '-' + date2.getDate();
 
-                $("#startdate").val(yesterdayString);
+                $("#startdate").val(GetFormattedDate(yesterdayString));
                 $("#todate").val(GetFormattedDate(endDate));
-                start = yesterdayString;
+                start = GetFormattedDate(yesterdayString);
                 end = GetFormattedDate(endDate);
-            }
-            else if (type == "Next") {
-                var Val = new Date(startVal.setDate(startVal.getDate() + 1));
-                var tomorrowString = Val.getFullYear() + "-" + ("0" + (Val.getMonth() + 1)).slice(-2) + "-" + ("0" + Val.getDate()).slice(-2);
 
-                var date2 = new Date(Val);
-                date2.setDate(date2.getDate() + 1);
-                var endDate = ("0" + date2.getDate()).slice(-2) + "/" + ("0" + (date2.getMonth() + 1)).slice(-2) + "/" + date2.getFullYear();//date2.getFullYear() + '-' + (date2.getMonth() + 1) + '-' + date2.getDate();
-
-                $("#startdate").val(tomorrowString);
-                $("#todate").val(GetFormattedDate(endDate));
-                start = tomorrowString;
-                end = GetFormattedDate(endDate);
+                typeTime = "Day";
             }
-        }
-        else if (typeTime == "Week") {
-            if (type == "Previous") {
-                var GetDay = startVal.getDay();
+            else if (type == "This week") {
+                var GetDay = date.getDay();
                 var firstday, SetDay;
 
                 if (GetDay == 2) {
-                    firstday = startVal.getDate() - 7;
+                    firstday = date.getDate();
                 } else if (GetDay > 2) {
-                    SetDay = startVal.getDay() - 2;
-                    firstday = (startVal.getDate() - SetDay) - 7;
+                    SetDay = date.getDay() - 2;
+                    firstday = date.getDate() - SetDay;
                 } else if (GetDay < 2) {
                     if (GetDay == 0) {
                         SetDay = 5 - GetDay;
-                        firstday = (startVal.getDate() - SetDay) - 7;
+                        firstday = date.getDate() - SetDay;
                     } else if (GetDay == 1) {
                         SetDay = 7 - GetDay;
-                        firstday = (startVal.getDate() - SetDay) - 7;
+                        firstday = date.getDate() - SetDay;
                     }
                 }
 
                 var lastday = firstday + 6;
-                var date1 = new Date(startVal.setDate(firstday));
-                var date2 = new Date(startVal.setDate(lastday));
-                var startDate = date1.getFullYear() + "-" + ("0" + (date1.getMonth() + 1)).slice(-2) + "-" + ("0" + date1.getDate()).slice(-2);
+                var date1 = new Date(date.setDate(firstday));
+                var date2 = new Date(date.setDate(lastday));
+
+                if (date1 > date2) {
+                    date2.setMonth(date2.getMonth() + 1);
+                }
+                var startDate = ("0" + date1.getDate()).slice(-2) + "/" + ("0" + (date1.getMonth() + 1)).slice(-2) + "/" + date1.getFullYear();
 
                 date2.setDate(date2.getDate() + 1);
-                var endDate;
-                if (date1.getDate() > date2.getDate()) {
-                    endDate = date2.getFullYear() + "-" + ("0" + (date2.getMonth() + 2)).slice(-2) + "-" + ("0" + date2.getDate()).slice(-2);
-                }
-                else {
-                    endDate = date2.getFullYear() + "-" + ("0" + (date2.getMonth() + 1)).slice(-2) + "-" + ("0" + date2.getDate()).slice(-2);
-                }
+                var endDate = ("0" + date2.getDate()).slice(-2) + "/" + ("0" + (date2.getMonth() + 1)).slice(-2) + "/" + date2.getFullYear();
 
-                $("#startdate").val(startDate);
-                $("#todate").val(endDate);
-                start = startDate;
-                end = endDate;
+                $("#startdate").val(GetFormattedDate(startDate));
+                $("#todate").val(GetFormattedDate(endDate));
+                start = GetFormattedDate(startDate);
+                end = GetFormattedDate(endDate);
+
+                typeTime = "Week";
             }
-            else if (type == "Next") {
-                var GetDay = startVal.getDay();
+            else if (type == "Last week") {
+                var GetDay = date.getDay();
                 var firstday, SetDay;
 
                 if (GetDay == 2) {
-                    firstday = startVal.getDate() + 7;
+                    firstday = date.getDate() - 7;
                 } else if (GetDay > 2) {
-                    SetDay = startVal.getDay() - 2;
-                    firstday = (startVal.getDate() - SetDay) + 7;
+                    SetDay = date.getDay() - 2;
+                    firstday = (date.getDate() - SetDay) - 7;
                 } else if (GetDay < 2) {
                     if (GetDay == 0) {
                         SetDay = 5 - GetDay;
-                        firstday = (startVal.getDate() - SetDay) + 7;
+                        firstday = (date.getDate() - SetDay) - 7;
                     } else if (GetDay == 1) {
                         SetDay = 7 - GetDay;
-                        firstday = (startVal.getDate() - SetDay) + 7;
+                        firstday = (date.getDate() - SetDay) - 7;
                     }
                 }
 
-                var date1 = new Date(startVal.setDate(firstday));
+                var date1 = new Date(date.setDate(firstday));
+                var lastday = date1.getDate() + 6;
+                var date2 = new Date(date.setDate(lastday));
 
-                var startDate = date1.getFullYear() + "-" + ("0" + (date1.getMonth() + 1)).slice(-2) + "-" + ("0" + date1.getDate()).slice(-2);
-
-                var date2 = new Date(date1.setTime(date1.getTime() + (6 * 24 * 60 * 60 * 1000)));
+                if (date1 > date2) {
+                    date2.setMonth(date2.getMonth() + 1);
+                }
+                var startDate = ("0" + date1.getDate()).slice(-2) + "/" + ("0" + (date1.getMonth() + 1)).slice(-2) + "/" + date1.getFullYear();
                 date2.setDate(date2.getDate() + 1);
-                var endDate = date2.getFullYear() + "-" + ("0" + (date2.getMonth() + 1)).slice(-2) + "-" + ("0" + date2.getDate()).slice(-2);
+                var endDate = ("0" + date2.getDate()).slice(-2) + "/" + ("0" + (date2.getMonth() + 1)).slice(-2) + "/" + date2.getFullYear();
+                $("#startdate").val(GetFormattedDate(startDate));
+                $("#todate").val(GetFormattedDate(endDate));
+                start = GetFormattedDate(startDate);
+                end = GetFormattedDate(endDate);
 
-                $("#startdate").val(startDate);
-                $("#todate").val(endDate);
-                start = startDate;
-                end = endDate;
+                typeTime = "Week";
             }
-        }
-        else if (typeTime == "Month") {
-            if (type == "Previous") {
-                var current = new Date(startVal.getFullYear(), startVal.getMonth() - 1, 1);
-                var tomorrowString = current.getFullYear() + "-" + ("0" + (current.getMonth() + 1)).slice(-2) + "-" + ("0" + current.getDate()).slice(-2);
-                $("#startdate").val(tomorrowString);
-                var current2 = new Date(startVal.getFullYear(), startVal.getMonth(), 0);
-                current2.setDate(current2.getDate() + 1);
-                var tomorrowString2 = current2.getFullYear() + "-" + ("0" + (current2.getMonth() + 1)).slice(-2) + "-" + ("0" + current2.getDate()).slice(-2);
-                $("#todate").val(tomorrowString2);
-                start = tomorrowString;
-                end = tomorrowString2;
+            else if (type == "This month") {
+                var date1 = new Date(date.getFullYear(), date.getMonth(), 1);
+                var date2 = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+                var startDate = ("0" + date1.getDate()).slice(-2) + "/" + ("0" + (date1.getMonth() + 1)).slice(-2) + "/" + date1.getFullYear();
+
+                date2.setDate(date2.getDate() + 1);
+                var endDate = ("0" + date2.getDate()).slice(-2) + "/" + ("0" + (date2.getMonth() + 1)).slice(-2) + "/" + date2.getFullYear();
+                $("#startdate").val(GetFormattedDate(startDate));
+                $("#todate").val(GetFormattedDate(endDate));
+                start = GetFormattedDate(startDate);
+                end = GetFormattedDate(endDate);
+
+                typeTime = "Month";
             }
-            else if (type == "Next") {
-                var current = new Date(startVal.getFullYear(), startVal.getMonth() + 1, 1);
-                var tomorrowString = current.getFullYear() + "-" + ("0" + (current.getMonth() + 1)).slice(-2) + "-" + ("0" + current.getDate()).slice(-2);
-                $("#startdate").val(tomorrowString);
-                var current2 = new Date(startVal.getFullYear(), startVal.getMonth() + 2, 0);
-                current2.setDate(current2.getDate() + 1);
-                var tomorrowString2 = current2.getFullYear() + "-" + ("0" + (current2.getMonth() + 1)).slice(-2) + "-" + ("0" + current2.getDate()).slice(-2);
-                $("#todate").val(tomorrowString2);
-                start = tomorrowString;
-                end = tomorrowString2;
+            else if (type == "Last month") {
+                var date1 = new Date(date.getFullYear(), date.getMonth() - 1, 1);
+                var date2 = new Date(date.getFullYear(), date.getMonth(), 0);
+                var startDate = ("0" + date1.getDate()).slice(-2) + "/" + ("0" + (date1.getMonth() + 1)).slice(-2) + "/" + date1.getFullYear();
+
+                date2.setDate(date2.getDate() + 1);
+                var endDate = ("0" + date2.getDate()).slice(-2) + "/" + ("0" + (date2.getMonth() + 1)).slice(-2) + "/" + date2.getFullYear();
+                $("#startdate").val(GetFormattedDate(startDate));
+                $("#todate").val(GetFormattedDate(endDate));
+                start = GetFormattedDate(startDate);
+                end = GetFormattedDate(endDate);
+
+                typeTime = "Month";
             }
-        }
-        var Time_S = $("#starttime").val() + ":00";
-        var Time_E = $("#totime").val() + ":00";
 
-        NumPage = 0;
-        Search_Click();
-    }
+            var Time_S = $("#starttime").val() + ":00";
+            var Time_E = $("#totime").val() + ":00";
 
-    function GetFormattedDate(txtDate) {
-        var month = txtDate.split('/')[1];
-        var day = txtDate.split('/')[0];
-        var year = txtDate.split('/')[2];
-        return year + "-" + month + "-" + day;
-    }
-
-    function capitalizeFirstLetter(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-    }
-
-    function Search_Click() {
-        if ($("#searchLoginname").val() != "") {
             NumPage = 0;
-            $("#navMenu , #tbData").html("");
-            GetData('2', '', $("#searchLoginname").val());
+            Search_Click();
         }
-        else {
-            NumPage = 0;
-            $("#navMenu , #tbData").html("");
-            GetData('1', '', '');
-        }
-    }
 
-    var NumPage = 0;
-    var TotalData;
-    function GetData(status, userID, username) {
-        $("#myModalLoad").modal();
-        postData(status, userID, username, NumPage);
-    }
+        function btnTimePN(type) {
+            var startVal = new Date($('#startdate').val());
+            var toVal = new Date($('#todate').val());
+            var start = "";
+            var end = "";
+            var starttime = "";
+            var endtime = "";
 
-    function Check(status, userID, username) {
-        NumPage = 0;
-        GetData(status, userID, username);
-    }
+            if (typeTime == "Day") {
+                if (type == "Previous") {
+                    var todayTimeStamp = startVal;
+                    var oneDayTimeStamp = 1000 * 60 * 60 * 24;
+                    var diff = todayTimeStamp - oneDayTimeStamp;
+                    var yesterdayDate = new Date(diff);
+                    var yesterdayString = yesterdayDate.getFullYear() + "-" + ("0" + (yesterdayDate.getMonth() + 1)).slice(-2) + "-" + ("0" + yesterdayDate.getDate()).slice(-2);
 
-    function GetNumPage(status, userID, username, num) {
-        $(function () {
-            (function (name) {
-                var container = $('#pagination-' + name);
-                container.pagination({
-                    totalNumber: TotalData,
-                    pageNumber: num,
-                    pageSize: 100,
-                    dataSource: 'https://api.flickr.com/services/feeds/photos_public.gne?tags=cat&tagmode=any&format=json&jsoncallback=?',
-                    locator: 'items',
-                    callback: function (response, pagination) {
-                        num = container.pagination('getSelectedPageNum');
-                        if (NumPage != 0) {
-                            postPage(status, userID, username, num);
+                    var date2 = new Date(yesterdayDate);
+                    date2.setDate(date2.getDate() + 1);
+                    var endDate = ("0" + date2.getDate()).slice(-2) + "/" + ("0" + (date2.getMonth() + 1)).slice(-2) + "/" + date2.getFullYear();//date2.getFullYear() + '-' + (date2.getMonth() + 1) + '-' + date2.getDate();
+
+                    $("#startdate").val(yesterdayString);
+                    $("#todate").val(GetFormattedDate(endDate));
+                    start = yesterdayString;
+                    end = GetFormattedDate(endDate);
+                }
+                else if (type == "Next") {
+                    var Val = new Date(startVal.setDate(startVal.getDate() + 1));
+                    var tomorrowString = Val.getFullYear() + "-" + ("0" + (Val.getMonth() + 1)).slice(-2) + "-" + ("0" + Val.getDate()).slice(-2);
+
+                    var date2 = new Date(Val);
+                    date2.setDate(date2.getDate() + 1);
+                    var endDate = ("0" + date2.getDate()).slice(-2) + "/" + ("0" + (date2.getMonth() + 1)).slice(-2) + "/" + date2.getFullYear();//date2.getFullYear() + '-' + (date2.getMonth() + 1) + '-' + date2.getDate();
+
+                    $("#startdate").val(tomorrowString);
+                    $("#todate").val(GetFormattedDate(endDate));
+                    start = tomorrowString;
+                    end = GetFormattedDate(endDate);
+                }
+            }
+            else if (typeTime == "Week") {
+                if (type == "Previous") {
+                    var GetDay = startVal.getDay();
+                    var firstday, SetDay;
+
+                    if (GetDay == 2) {
+                        firstday = startVal.getDate() - 7;
+                    } else if (GetDay > 2) {
+                        SetDay = startVal.getDay() - 2;
+                        firstday = (startVal.getDate() - SetDay) - 7;
+                    } else if (GetDay < 2) {
+                        if (GetDay == 0) {
+                            SetDay = 5 - GetDay;
+                            firstday = (startVal.getDate() - SetDay) - 7;
+                        } else if (GetDay == 1) {
+                            SetDay = 7 - GetDay;
+                            firstday = (startVal.getDate() - SetDay) - 7;
                         }
-                        NumPage = num;
                     }
-                });
-            })('demo2');
-        });
-    }
 
-    const postData = async (status, userID, username, num) => {
-        $("#myModalLoad").modal();
+                    var lastday = firstday + 6;
+                    var date1 = new Date(startVal.setDate(firstday));
+                    var date2 = new Date(startVal.setDate(lastday));
+                    var startDate = date1.getFullYear() + "-" + ("0" + (date1.getMonth() + 1)).slice(-2) + "-" + ("0" + date1.getDate()).slice(-2);
 
-        if (num == 0) {
-            num = num + 1;
+                    date2.setDate(date2.getDate() + 1);
+                    var endDate;
+                    if (date1.getDate() > date2.getDate()) {
+                        endDate = date2.getFullYear() + "-" + ("0" + (date2.getMonth() + 2)).slice(-2) + "-" + ("0" + date2.getDate()).slice(-2);
+                    }
+                    else {
+                        endDate = date2.getFullYear() + "-" + ("0" + (date2.getMonth() + 1)).slice(-2) + "-" + ("0" + date2.getDate()).slice(-2);
+                    }
+
+                    $("#startdate").val(startDate);
+                    $("#todate").val(endDate);
+                    start = startDate;
+                    end = endDate;
+                }
+                else if (type == "Next") {
+                    var GetDay = startVal.getDay();
+                    var firstday, SetDay;
+
+                    if (GetDay == 2) {
+                        firstday = startVal.getDate() + 7;
+                    } else if (GetDay > 2) {
+                        SetDay = startVal.getDay() - 2;
+                        firstday = (startVal.getDate() - SetDay) + 7;
+                    } else if (GetDay < 2) {
+                        if (GetDay == 0) {
+                            SetDay = 5 - GetDay;
+                            firstday = (startVal.getDate() - SetDay) + 7;
+                        } else if (GetDay == 1) {
+                            SetDay = 7 - GetDay;
+                            firstday = (startVal.getDate() - SetDay) + 7;
+                        }
+                    }
+
+                    var date1 = new Date(startVal.setDate(firstday));
+
+                    var startDate = date1.getFullYear() + "-" + ("0" + (date1.getMonth() + 1)).slice(-2) + "-" + ("0" + date1.getDate()).slice(-2);
+
+                    var date2 = new Date(date1.setTime(date1.getTime() + (6 * 24 * 60 * 60 * 1000)));
+                    date2.setDate(date2.getDate() + 1);
+                    var endDate = date2.getFullYear() + "-" + ("0" + (date2.getMonth() + 1)).slice(-2) + "-" + ("0" + date2.getDate()).slice(-2);
+
+                    $("#startdate").val(startDate);
+                    $("#todate").val(endDate);
+                    start = startDate;
+                    end = endDate;
+                }
+            }
+            else if (typeTime == "Month") {
+                if (type == "Previous") {
+                    var current = new Date(startVal.getFullYear(), startVal.getMonth() - 1, 1);
+                    var tomorrowString = current.getFullYear() + "-" + ("0" + (current.getMonth() + 1)).slice(-2) + "-" + ("0" + current.getDate()).slice(-2);
+                    $("#startdate").val(tomorrowString);
+                    var current2 = new Date(startVal.getFullYear(), startVal.getMonth(), 0);
+                    current2.setDate(current2.getDate() + 1);
+                    var tomorrowString2 = current2.getFullYear() + "-" + ("0" + (current2.getMonth() + 1)).slice(-2) + "-" + ("0" + current2.getDate()).slice(-2);
+                    $("#todate").val(tomorrowString2);
+                    start = tomorrowString;
+                    end = tomorrowString2;
+                }
+                else if (type == "Next") {
+                    var current = new Date(startVal.getFullYear(), startVal.getMonth() + 1, 1);
+                    var tomorrowString = current.getFullYear() + "-" + ("0" + (current.getMonth() + 1)).slice(-2) + "-" + ("0" + current.getDate()).slice(-2);
+                    $("#startdate").val(tomorrowString);
+                    var current2 = new Date(startVal.getFullYear(), startVal.getMonth() + 2, 0);
+                    current2.setDate(current2.getDate() + 1);
+                    var tomorrowString2 = current2.getFullYear() + "-" + ("0" + (current2.getMonth() + 1)).slice(-2) + "-" + ("0" + current2.getDate()).slice(-2);
+                    $("#todate").val(tomorrowString2);
+                    start = tomorrowString;
+                    end = tomorrowString2;
+                }
+            }
+            var Time_S = $("#starttime").val() + ":00";
+            var Time_E = $("#totime").val() + ":00";
+
+            NumPage = 0;
+            Search_Click();
         }
 
-        var URL;
-        var parameter = {};
-        if (status == 1) {
-            URL = `${apiURL}/v1/lotto/report/stakeholder_payment`;
-            parameter = {
-                startDate: $("#startdate").val(),
-                startTime: $("#starttime").val() + ":00",
-                endDate: $("#todate").val(),
-                endTime: $("#totime").val() + ":00",
-                userID: userID,
-                username: username,
-                page: num,
-                size: 100
+        function GetFormattedDate(txtDate) {
+            var month = txtDate.split('/')[1];
+            var day = txtDate.split('/')[0];
+            var year = txtDate.split('/')[2];
+            return year + "-" + month + "-" + day;
+        }
+
+        function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
+        function Search_Click() {
+            if ($("#searchLoginname").val() != "") {
+                NumPage = 0;
+                $("#navMenu , #tbData").html("");
+                GetData('2', '', $("#searchLoginname").val());
+            }
+            else {
+                NumPage = 0;
+                $("#navMenu , #tbData").html("");
+                GetData('1', '', '');
             }
         }
-        else if (status == 2) {
-            URL = `${apiURL}/v1/lotto/report/redeem_history`;
-            parameter = {
-                startDate: $("#startdate").val(),
-                startTime: $("#starttime").val() + ":00",
-                endDate: $("#todate").val(),
-                endTime: $("#totime").val() + ":00",
-                username: username,
-                page: num,
-                size: 100
+
+        var NumPage = 0;
+        var TotalData;
+        function GetData(status, userID, username) {
+            $("#myModalLoad").modal();
+            postData(status, userID, username, NumPage);
+        }
+
+        function Check(status, userID, username) {
+            NumPage = 0;
+            GetData(status, userID, username);
+        }
+
+        function GetNumPage(status, userID, username, num) {
+            $(function () {
+                (function (name) {
+                    var container = $('#pagination-' + name);
+                    container.pagination({
+                        totalNumber: TotalData,
+                        pageNumber: num,
+                        pageSize: 100,
+                        dataSource: '/json/DataSource.json',
+                        locator: 'items',
+                        callback: function (response, pagination) {
+                            num = container.pagination('getSelectedPageNum');
+                            if (NumPage != 0) {
+                                postPage(status, userID, username, num);
+                            }
+                            NumPage = num;
+                        }
+                    });
+                })('demo2');
+            });
+        }
+
+        const postData = async (status, userID, username, num) => {
+            $("#myModalLoad").modal();
+
+            if (num == 0) {
+                num = num + 1;
+            }
+
+            var URL;
+            var parameter = {};
+            if (status == 1) {
+                URL = `${apiURL}/v1/lotto/report/stakeholder_payment`;
+                parameter = {
+                    startDate: $("#startdate").val(),
+                    startTime: $("#starttime").val() + ":00",
+                    endDate: $("#todate").val(),
+                    endTime: $("#totime").val() + ":00",
+                    userID: userID,
+                    username: username,
+                    page: num,
+                    size: 100
+                }
+            }
+            else if (status == 2) {
+                URL = `${apiURL}/v1/lotto/report/redeem_history`;
+                parameter = {
+                    startDate: $("#startdate").val(),
+                    startTime: $("#starttime").val() + ":00",
+                    endDate: $("#todate").val(),
+                    endTime: $("#totime").val() + ":00",
+                    username: username,
+                    page: num,
+                    size: 100
+                }
+            }
+            const requestAwait = await fetchDataSite(URL, 'POST', "include", parameter)
+            const response = await requestAwait.json()
+
+            if (response.messageCode == 0000 || response.messageCode == null) {
+                TotalData = response.total;
+                GetNumPage(status, userID, username, num);
+
+                if (NumPage == 0) {
+                    if (status == 1) {
+                        $("#navMenu , #tbData").html("");
+                        $("#tb").css('display', 'none');
+
+                        var no = 1;
+                        var htmlAll = "";
+                        var htmlHead = "";
+                        var htmlData = "";
+                        var htmlFoot = "";
+
+                        htmlHead += "<thead class='rgba-green-slight'><tr>";
+                        htmlHead += "<th style='width: 1%;' set-lan='text:No'></th>";
+                        htmlHead += "<th style='width: 8%; text-align: left; padding-left: 5px;' set-lan='text:Username'></th>";
+                        htmlHead += "<th style='width: 8%; text-align: left; padding-left: 5px;' set-lan='text:Nickname'></th>";
+                        htmlHead += "<th style='width: 8%;' set-lan='text:Level'></th>";
+                        htmlHead += "<th style='width: 8%;' set-lan='text:Payout'></th>";
+                        htmlHead += "</tr></thead>";
+
+                        htmlFoot += "<tfoot class='rgba-yellow-slight'>";
+                        htmlFoot += "<tr class='total'>";
+                        htmlFoot += "<td></td><td></td><td></td>";
+                        htmlFoot += "<td set-lan='text:Total'></td>";
+                        htmlFoot += "<td id='totalPay'>-</td>";
+                        htmlFoot += "</tr></tfoot>";
+
+                        if (response.total > 0) {
+                            for (var i = 0; i < response.data.details.length; i++) {
+                                var obj = response.data.details[i];
+
+                                var Level = obj.level
+                                if (Level == "SH_HOLDER") {
+                                    Level = "Shareholder";
+                                }
+                                else {
+                                    var txt = Level;
+                                    var txt2 = txt.toLowerCase();
+                                    Level = capitalizeFirstLetter(txt2);
+                                }
+
+                                var payout = parseFloat(obj.payout).toFixed(2);
+                                payout = payout.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+
+                                htmlData += "<tr>";
+                                htmlData += "<td class='aligncenter'>" + (((num - 1) * 100) + no) + "</td>";
+                                if (Level == "Member") {
+                                    htmlData += "<td><a onclick='Check(`2`,``,`" + obj.username + "`)' class='linkNav linkUser'>" + obj.username + "</a></td>";
+                                }
+                                else {
+                                    htmlData += "<td><a onclick='Check(`1`,`" + obj.userID + "`,``)' class='linkNav linkUser'>" + obj.username + "</a></td>";
+                                }
+                                htmlData += "<td><a class='overflow ellipsis' title='" + obj.nickname + "'>" + obj.nickname + "</a></td>";
+                                htmlData += "<td class='aligncenter' set-lan='text:" + Level + "'></td>";
+                                htmlData += "<td class='alignright'>" + payout + "</td>";
+                                htmlData += "</tr>";
+
+                                no++;
+                            }
+
+                            htmlAll = htmlHead + htmlData + htmlFoot;
+                            $("#tbData").append(htmlAll);
+
+                            var realizedAmount = parseFloat(response.data.realizedAmount).toFixed(2);
+                            realizedAmount = realizedAmount.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+                            $("#totalPay").text(realizedAmount.toString());
+
+                        }
+                        else {
+                            htmlData += '<tr><td colspan="5" class="aligncenter" set-lan="text:No data."></td></tr>';
+
+                            htmlAll = htmlHead + htmlData + htmlFoot;
+                            $("#tbData").append(htmlAll);
+                            $("#totalPay").text("-");
+                        }
+
+                        if (response.data.parentList.length != 0) {
+                            var navMenu = "";
+                            for (var i = 0; i < response.data.parentList.length; i++) {
+                                var obj = response.data.parentList[i];
+                                if (navMenu == "") {
+                                    navMenu += "<a class='linkNav' onclick='Check(`1`,`" + obj.id + "`,``)'>" + obj.username + "</a>";
+                                }
+                                else {
+                                    navMenu += " / <a class='linkNav' onclick='Check(`1`,`" + obj.id + "`,``)'>" + obj.username + "</a>";
+                                }
+                            }
+                            $("#navMenu").append(navMenu);
+                            $("#navMenu > a:last-child").css("text-decoration", "underline");
+                        }
+
+                        SetLan(localStorage.getItem("Language"));
+                        $("#myModalLoad").modal('hide');
+                    }
+                    else if (status == 2) {
+                        var htmlData = "";
+                        $("#tbData").html("");
+                        $("#tb").css('display', 'none');
+
+                        var no = 1;
+                        var htmlAll = "";
+                        var htmlHead = "";
+                        var htmlData = "";
+                        var htmlFoot = "";
+
+                        htmlHead += "<thead class='rgba-green-slight'><tr>";
+                        htmlHead += "<th style='width: 1%;' set-lan='text:No'></th>";
+                        htmlHead += "<th style='width: 10%; text-align: left; padding-left: 5px;' set-lan='text:Information'></th>";
+                        htmlHead += "<th style='width: 5%;' set-lan='text:Level'></th>";
+                        htmlHead += "<th style='width: 5%;' set-lan='text:Bet Number'></th>";
+                        htmlHead += "<th style='width: 5%;' set-lan='text:Reward Number'></th>";
+                        htmlHead += "<th style='width: 9%;' set-lan='text:Reward'></th>";
+                        htmlHead += "<th style='width: 8%;' set-lan='text:Value'></th>";
+                        htmlHead += "</tr></thead>";
+
+                        htmlFoot += "<tfoot class='rgba-yellow-slight'>";
+                        htmlFoot += "<tr class='total'>";
+                        htmlFoot += "<td></td><td></td><td></td><td></td><td></td>";
+                        htmlFoot += "<td set-lan='text:Total'></td>";
+                        htmlFoot += "<td id='totalGet'>-</td>";
+                        htmlFoot += "</tr></tfoot>";
+
+                        if (response.total != 0) {
+                            for (var i = 0; i < response.data.details.length; i++) {
+                                var obj = response.data.details[i];
+
+                                htmlData += "<tr>";
+                                htmlData += "<td class='aligncenter'>" + (((num - 1) * 100) + no) + "</td>";
+
+                                var date = new Date(obj.createDate);
+                                var txtStartDate;
+                                if (obj.createDate == "" || obj.createDate == null) {
+                                    txtStartDate = "-";
+                                }
+                                else {
+                                    txtStartDate = ("0" + date.getDate()).slice(-2) + "/" + ("0" + (date.getMonth() + 1)).slice(-2) + "/" + date.getFullYear() + " " + ("0" + date.getHours()).slice(-2) + ":" + ("0" + date.getMinutes()).slice(-2) + ":" + ("0" + date.getSeconds()).slice(-2);
+                                }
+
+                                var date2 = new Date(obj.endDate);
+                                var txtEndDate;
+                                if (obj.endDate == "" || obj.endDate == null) {
+                                    txtEndDate = "-";
+                                }
+                                else {
+                                    txtEndDate = ("0" + date2.getDate()).slice(-2) + "/" + ("0" + (date2.getMonth() + 1)).slice(-2) + "/" + date2.getFullYear() + " " + ("0" + date2.getHours()).slice(-2) + ":" + ("0" + date2.getMinutes()).slice(-2) + ":" + ("0" + date2.getSeconds()).slice(-2);
+                                }
+
+                                var date3 = new Date(obj.periodTime);
+                                var txtAwardDate;
+                                if (obj.periodTime == "" || obj.periodTime == null) {
+                                    txtAwardDate = "-";
+                                }
+                                else {
+                                    txtAwardDate = ("0" + date3.getDate()).slice(-2) + "/" + ("0" + (date3.getMonth() + 1)).slice(-2) + "/" + date3.getFullYear() + " " + ("0" + date3.getHours()).slice(-2) + ":" + ("0" + date3.getMinutes()).slice(-2) + ":" + ("0" + date3.getSeconds()).slice(-2);
+                                }
+
+                                var date4 = new Date(obj.claimDate);
+                                var txtReward;
+                                if (obj.claimDate == "" || obj.claimDate == null) {
+                                    txtReward = "-";
+                                }
+                                else {
+                                    txtReward = ("0" + date4.getDate()).slice(-2) + "/" + ("0" + (date4.getMonth() + 1)).slice(-2) + "/" + date4.getFullYear() + " " + ("0" + date4.getHours()).slice(-2) + ":" + ("0" + date4.getMinutes()).slice(-2) + ":" + ("0" + date4.getSeconds()).slice(-2);
+                                }
+                                htmlData += "<td><b set-lan='text:User'></b>: " + obj.username + "<br><b set-lan='text:Start date_'></b> " + txtStartDate + "<br><b set-lan='text:To date_'></b> " + txtEndDate + "<br><b set-lan='text:Time of award'></b>: " + txtAwardDate + "<br><b set-lan='text:Reward date'></b>: " + txtReward + "</td>"
+
+                                var Level = obj.level
+                                if (Level == "SH_HOLDER") {
+                                    Level = "Shareholder";
+                                }
+                                else {
+                                    var txt = Level;
+                                    var txt2 = txt.toLowerCase();
+                                    Level = capitalizeFirstLetter(txt2);
+                                }
+                                htmlData += "<td class='aligncenter' set-lan='text:" + Level + "'></td>";
+                                htmlData += "<td class='aligncenter'>" + obj.yourNumber + "</td>";
+                                htmlData += "<td class='aligncenter'>" + obj.rewardNumber + "</td>";
+
+                                var data = "";
+                                var txt = obj.rewardType.split('_');
+                                for (var j = 0; j < txt.length; j++) {
+                                    if (txt[j] == "firstPrize") {
+                                        if (data == "") {
+                                            data += "<span set-lan='text:First Prize'></span>";
+                                        }
+                                        else {
+                                            data += ",<br><span set-lan='text:First Prize'></span>";
+                                        }
+                                    }
+                                    else if (txt[j] == "firstThreeDigits") {
+                                        if (data == "") {
+                                            data += "<span set-lan='text:3 first numbers match'></span>";
+                                        }
+                                        else {
+                                            data += ",<br><span set-lan='text:3 first numbers match'></span>";
+                                        }
+                                    }
+                                    else if (txt[j] == "lastThreeDigits") {
+                                        if (data == "") {
+                                            data += "<span set-lan='text:3 last numbers match'></span>";
+                                        }
+                                        else {
+                                            data += ",<br><span set-lan='text:3 last numbers match'></span>";
+                                        }
+                                    }
+                                    else if (txt[j] == "lastTwoDigits") {
+                                        if (data == "") {
+                                            data += "<span set-lan='text:2 last numbers match'></span>";
+                                        }
+                                        else {
+                                            data += ",<br><span set-lan='text:2 last numbers match'></span>";
+                                        }
+                                    }
+                                }
+                                htmlData += "<td>" + data + "</td>";
+
+                                var rewardValue = parseFloat(obj.rewardValue).toFixed(2);
+                                rewardValue = rewardValue.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+                                htmlData += "<td class='alignright'>" + rewardValue + "</td>";
+                                htmlData += "</tr>";
+
+                                no++;
+                            }
+                            htmlAll = htmlHead + htmlData + htmlFoot;
+                            $("#tbData").append(htmlAll);
+
+                            var realizedAmount = parseFloat(response.data.realizedAmount).toFixed(2);
+                            realizedAmount = realizedAmount.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+                            $("#totalGet").text(realizedAmount.toString());
+
+                            SetLan(localStorage.getItem("Language"));
+                            $("#myModalLoad").modal('hide');
+                        }
+                        else {
+                            htmlData += "<tr><td colspan='9' class='aligncenter' set-lan='text:No data.'></td></tr>";
+                            htmlAll = htmlHead + htmlData + htmlFoot;
+                            $("#tbData").append(htmlAll);
+                            $("#totalGet").text("-");
+
+                            SetLan(localStorage.getItem("Language"));
+                            $("#myModalLoad").modal('hide');
+                        }
+
+                        var txt = "<a class='linkNav Check2' onclick='Check(`2`,``,`" + username + "`)'>" + username + "</a>";
+                        var arrNav = $("#navMenu").html();
+                        var Check = arrNav.search("Check2");
+                        if (Check < 0 && arrNav != "") {
+                            arrNav += " / " + txt;
+                        }
+                        else if (arrNav == "") {
+                            arrNav += txt;
+                        }
+
+                        $("#navMenu").html("");
+                        $("#navMenu").append(arrNav);
+                        $("#navMenu > a:last-child").css("text-decoration", "underline");
+
+                    }
+                }
+            }
+            else if (response.messageCode == 8004) {
+                document.getElementById('lbAlert').innerHTML = response.messageDescription;
+                $("#myModalLoad").modal('hide');
+                $('#modalAlert').modal('show');
+                window.location.href = "/Login.aspx";
+            }
+            else {
+                document.getElementById('lbAlert').innerHTML = response.messageDescription;
+                $("#myModalLoad").modal('hide');
+                $('#modalAlert').modal('show');
             }
         }
-        const requestAwait = await fetchDataSite(URL, 'POST', "include", parameter)
-        const response = await requestAwait.json()
 
-        if (response.messageCode == 0000 || response.messageCode == null) {
-            TotalData = response.total;
-            GetNumPage(status, userID, username, num);
+        const postPage = async (status, userID, username, num) => {
+            $("#myModalLoad").modal();
+            $("#tbData > tbody").html("");
 
-            if (NumPage == 0) {
+            var URL;
+            var parameter = {};
+            if (status == 1) {
+                URL = `${apiURL}/v1/lotto/report/stakeholder_payment`;
+                parameter = {
+                    startDate: $("#startdate").val(),
+                    startTime: $("#starttime").val() + ":00",
+                    endDate: $("#todate").val(),
+                    endTime: $("#totime").val() + ":00",
+                    userID: userID,
+                    username: username,
+                    page: num,
+                    size: 100
+                }
+            }
+            else if (status == 2) {
+                URL = `${apiURL}/v1/lotto/report/redeem_history`;
+                parameter = {
+                    startDate: $("#startdate").val(),
+                    startTime: $("#starttime").val() + ":00",
+                    endDate: $("#todate").val(),
+                    endTime: $("#totime").val() + ":00",
+                    username: username,
+                    page: num,
+                    size: 100
+                }
+            }
+            const requestAwait = await fetchDataSite(URL, 'POST', "include", parameter)
+            const response = await requestAwait.json()
+
+            if (response.messageCode == 0000 || response.messageCode == null) {
                 if (status == 1) {
                     $("#navMenu , #tbData").html("");
                     $("#tb").css('display', 'none');
@@ -848,6 +1155,8 @@
                         htmlData += "<tr><td colspan='9' class='aligncenter' set-lan='text:No data.'></td></tr>";
                         htmlAll = htmlHead + htmlData + htmlFoot;
                         $("#tbData").append(htmlAll);
+
+                        $("#totalReward").text("-");
                         $("#totalGet").text("-");
 
                         SetLan(localStorage.getItem("Language"));
@@ -870,327 +1179,18 @@
 
                 }
             }
-        }
-        else if (response.messageCode == 8004) {
-            document.getElementById('lbAlert').innerHTML = response.messageDescription;
-            $("#myModalLoad").modal('hide');
-            $('#modalAlert').modal('show');
-            window.location.href = "/Login.aspx";
-        }
-        else {
-            document.getElementById('lbAlert').innerHTML = response.messageDescription;
-            $("#myModalLoad").modal('hide');
-            $('#modalAlert').modal('show');
-        }
-    }
-
-    const postPage = async (status, userID, username, num) => {
-        $("#myModalLoad").modal();
-        $("#tbData > tbody").html("");
-
-        var URL;
-        var parameter = {};
-        if (status == 1) {
-            URL = `${apiURL}/v1/lotto/report/stakeholder_payment`;
-            parameter = {
-                startDate: $("#startdate").val(),
-                startTime: $("#starttime").val() + ":00",
-                endDate: $("#todate").val(),
-                endTime: $("#totime").val() + ":00",
-                userID: userID,
-                username: username,
-                page: num,
-                size: 100
-            }
-        }
-        else if (status == 2) {
-            URL = `${apiURL}/v1/lotto/report/redeem_history`;
-            parameter = {
-                startDate: $("#startdate").val(),
-                startTime: $("#starttime").val() + ":00",
-                endDate: $("#todate").val(),
-                endTime: $("#totime").val() + ":00",
-                username: username,
-                page: num,
-                size: 100
-            }
-        }
-        const requestAwait = await fetchDataSite(URL, 'POST', "include", parameter)
-        const response = await requestAwait.json()
-
-        if (response.messageCode == 0000 || response.messageCode == null) {
-            if (status == 1) {
-                $("#navMenu , #tbData").html("");
-                $("#tb").css('display', 'none');
-
-                var no = 1;
-                var htmlAll = "";
-                var htmlHead = "";
-                var htmlData = "";
-                var htmlFoot = "";
-
-                htmlHead += "<thead class='rgba-green-slight'><tr>";
-                htmlHead += "<th style='width: 1%;' set-lan='text:No'></th>";
-                htmlHead += "<th style='width: 8%; text-align: left; padding-left: 5px;' set-lan='text:Username'></th>";
-                htmlHead += "<th style='width: 8%; text-align: left; padding-left: 5px;' set-lan='text:Nickname'></th>";
-                htmlHead += "<th style='width: 8%;' set-lan='text:Level'></th>";
-                htmlHead += "<th style='width: 8%;' set-lan='text:Payout'></th>";
-                htmlHead += "</tr></thead>";
-
-                htmlFoot += "<tfoot class='rgba-yellow-slight'>";
-                htmlFoot += "<tr class='total'>";
-                htmlFoot += "<td></td><td></td><td></td>";
-                htmlFoot += "<td set-lan='text:Total'></td>";
-                htmlFoot += "<td id='totalPay'>-</td>";
-                htmlFoot += "</tr></tfoot>";
-
-                if (response.total > 0) {
-                    for (var i = 0; i < response.data.details.length; i++) {
-                        var obj = response.data.details[i];
-
-                        var Level = obj.level
-                        if (Level == "SH_HOLDER") {
-                            Level = "Shareholder";
-                        }
-                        else {
-                            var txt = Level;
-                            var txt2 = txt.toLowerCase();
-                            Level = capitalizeFirstLetter(txt2);
-                        }
-
-                        var payout = parseFloat(obj.payout).toFixed(2);
-                        payout = payout.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-
-                        htmlData += "<tr>";
-                        htmlData += "<td class='aligncenter'>" + (((num - 1) * 100) + no) + "</td>";
-                        if (Level == "Member") {
-                            htmlData += "<td><a onclick='Check(`2`,``,`" + obj.username + "`)' class='linkNav linkUser'>" + obj.username + "</a></td>";
-                        }
-                        else {
-                            htmlData += "<td><a onclick='Check(`1`,`" + obj.userID + "`,``)' class='linkNav linkUser'>" + obj.username + "</a></td>";
-                        }
-                        htmlData += "<td><a class='overflow ellipsis' title='" + obj.nickname + "'>" + obj.nickname + "</a></td>";
-                        htmlData += "<td class='aligncenter' set-lan='text:" + Level + "'></td>";
-                        htmlData += "<td class='alignright'>" + payout + "</td>";
-                        htmlData += "</tr>";
-
-                        no++;
-                    }
-
-                    htmlAll = htmlHead + htmlData + htmlFoot;
-                    $("#tbData").append(htmlAll);
-
-                    var realizedAmount = parseFloat(response.data.realizedAmount).toFixed(2);
-                    realizedAmount = realizedAmount.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-                    $("#totalPay").text(realizedAmount.toString());
-
-                }
-                else {
-                    htmlData += '<tr><td colspan="5" class="aligncenter" set-lan="text:No data."></td></tr>';
-
-                    htmlAll = htmlHead + htmlData + htmlFoot;
-                    $("#tbData").append(htmlAll);
-                    $("#totalPay").text("-");
-                }
-
-                if (response.data.parentList.length != 0) {
-                    var navMenu = "";
-                    for (var i = 0; i < response.data.parentList.length; i++) {
-                        var obj = response.data.parentList[i];
-                        if (navMenu == "") {
-                            navMenu += "<a class='linkNav' onclick='Check(`1`,`" + obj.id + "`,``)'>" + obj.username + "</a>";
-                        }
-                        else {
-                            navMenu += " / <a class='linkNav' onclick='Check(`1`,`" + obj.id + "`,``)'>" + obj.username + "</a>";
-                        }
-                    }
-                    $("#navMenu").append(navMenu);
-                    $("#navMenu > a:last-child").css("text-decoration", "underline");
-                }
-
-                SetLan(localStorage.getItem("Language"));
+            else if (response.messageCode == 8004) {
+                document.getElementById('lbAlert').innerHTML = response.messageDescription;
                 $("#myModalLoad").modal('hide');
+                $('#modalAlert').modal('show');
+                window.location.href = "/Login.aspx";
             }
-            else if (status == 2) {
-                var htmlData = "";
-                $("#tbData").html("");
-                $("#tb").css('display', 'none');
-
-                var no = 1;
-                var htmlAll = "";
-                var htmlHead = "";
-                var htmlData = "";
-                var htmlFoot = "";
-
-                htmlHead += "<thead class='rgba-green-slight'><tr>";
-                htmlHead += "<th style='width: 1%;' set-lan='text:No'></th>";
-                htmlHead += "<th style='width: 10%; text-align: left; padding-left: 5px;' set-lan='text:Information'></th>";
-                htmlHead += "<th style='width: 5%;' set-lan='text:Level'></th>";
-                htmlHead += "<th style='width: 5%;' set-lan='text:Bet Number'></th>";
-                htmlHead += "<th style='width: 5%;' set-lan='text:Reward Number'></th>";
-                htmlHead += "<th style='width: 9%;' set-lan='text:Reward'></th>";
-                htmlHead += "<th style='width: 8%;' set-lan='text:Value'></th>";
-                htmlHead += "</tr></thead>";
-
-                htmlFoot += "<tfoot class='rgba-yellow-slight'>";
-                htmlFoot += "<tr class='total'>";
-                htmlFoot += "<td></td><td></td><td></td><td></td><td></td>";
-                htmlFoot += "<td set-lan='text:Total'></td>";
-                htmlFoot += "<td id='totalGet'>-</td>";
-                htmlFoot += "</tr></tfoot>";
-
-                if (response.total != 0) {
-                    for (var i = 0; i < response.data.details.length; i++) {
-                        var obj = response.data.details[i];
-
-                        htmlData += "<tr>";
-                        htmlData += "<td class='aligncenter'>" + (((num - 1) * 100) + no) + "</td>";
-
-                        var date = new Date(obj.createDate);
-                        var txtStartDate;
-                        if (obj.createDate == "" || obj.createDate == null) {
-                            txtStartDate = "-";
-                        }
-                        else {
-                            txtStartDate = ("0" + date.getDate()).slice(-2) + "/" + ("0" + (date.getMonth() + 1)).slice(-2) + "/" + date.getFullYear() + " " + ("0" + date.getHours()).slice(-2) + ":" + ("0" + date.getMinutes()).slice(-2) + ":" + ("0" + date.getSeconds()).slice(-2);
-                        }
-
-                        var date2 = new Date(obj.endDate);
-                        var txtEndDate;
-                        if (obj.endDate == "" || obj.endDate == null) {
-                            txtEndDate = "-";
-                        }
-                        else {
-                            txtEndDate = ("0" + date2.getDate()).slice(-2) + "/" + ("0" + (date2.getMonth() + 1)).slice(-2) + "/" + date2.getFullYear() + " " + ("0" + date2.getHours()).slice(-2) + ":" + ("0" + date2.getMinutes()).slice(-2) + ":" + ("0" + date2.getSeconds()).slice(-2);
-                        }
-
-                        var date3 = new Date(obj.periodTime);
-                        var txtAwardDate;
-                        if (obj.periodTime == "" || obj.periodTime == null) {
-                            txtAwardDate = "-";
-                        }
-                        else {
-                            txtAwardDate = ("0" + date3.getDate()).slice(-2) + "/" + ("0" + (date3.getMonth() + 1)).slice(-2) + "/" + date3.getFullYear() + " " + ("0" + date3.getHours()).slice(-2) + ":" + ("0" + date3.getMinutes()).slice(-2) + ":" + ("0" + date3.getSeconds()).slice(-2);
-                        }
-
-                        var date4 = new Date(obj.claimDate);
-                        var txtReward;
-                        if (obj.claimDate == "" || obj.claimDate == null) {
-                            txtReward = "-";
-                        }
-                        else {
-                            txtReward = ("0" + date4.getDate()).slice(-2) + "/" + ("0" + (date4.getMonth() + 1)).slice(-2) + "/" + date4.getFullYear() + " " + ("0" + date4.getHours()).slice(-2) + ":" + ("0" + date4.getMinutes()).slice(-2) + ":" + ("0" + date4.getSeconds()).slice(-2);
-                        }
-                        htmlData += "<td><b set-lan='text:User'></b>: " + obj.username + "<br><b set-lan='text:Start date_'></b> " + txtStartDate + "<br><b set-lan='text:To date_'></b> " + txtEndDate + "<br><b set-lan='text:Time of award'></b>: " + txtAwardDate + "<br><b set-lan='text:Reward date'></b>: " + txtReward + "</td>"
-
-                        var Level = obj.level
-                        if (Level == "SH_HOLDER") {
-                            Level = "Shareholder";
-                        }
-                        else {
-                            var txt = Level;
-                            var txt2 = txt.toLowerCase();
-                            Level = capitalizeFirstLetter(txt2);
-                        }
-                        htmlData += "<td class='aligncenter' set-lan='text:" + Level + "'></td>";
-                        htmlData += "<td class='aligncenter'>" + obj.yourNumber + "</td>";
-                        htmlData += "<td class='aligncenter'>" + obj.rewardNumber + "</td>";
-
-                        var data = "";
-                        var txt = obj.rewardType.split('_');
-                        for (var j = 0; j < txt.length; j++) {
-                            if (txt[j] == "firstPrize") {
-                                if (data == "") {
-                                    data += "<span set-lan='text:First Prize'></span>";
-                                }
-                                else {
-                                    data += ",<br><span set-lan='text:First Prize'></span>";
-                                }
-                            }
-                            else if (txt[j] == "firstThreeDigits") {
-                                if (data == "") {
-                                    data += "<span set-lan='text:3 first numbers match'></span>";
-                                }
-                                else {
-                                    data += ",<br><span set-lan='text:3 first numbers match'></span>";
-                                }
-                            }
-                            else if (txt[j] == "lastThreeDigits") {
-                                if (data == "") {
-                                    data += "<span set-lan='text:3 last numbers match'></span>";
-                                }
-                                else {
-                                    data += ",<br><span set-lan='text:3 last numbers match'></span>";
-                                }
-                            }
-                            else if (txt[j] == "lastTwoDigits") {
-                                if (data == "") {
-                                    data += "<span set-lan='text:2 last numbers match'></span>";
-                                }
-                                else {
-                                    data += ",<br><span set-lan='text:2 last numbers match'></span>";
-                                }
-                            }
-                        }
-                        htmlData += "<td>" + data + "</td>";
-
-                        var rewardValue = parseFloat(obj.rewardValue).toFixed(2);
-                        rewardValue = rewardValue.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-                        htmlData += "<td class='alignright'>" + rewardValue + "</td>";
-                        htmlData += "</tr>";
-
-                        no++;
-                    }
-                    htmlAll = htmlHead + htmlData + htmlFoot;
-                    $("#tbData").append(htmlAll);
-
-                    var realizedAmount = parseFloat(response.data.realizedAmount).toFixed(2);
-                    realizedAmount = realizedAmount.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-                    $("#totalGet").text(realizedAmount.toString());
-
-                    SetLan(localStorage.getItem("Language"));
-                    $("#myModalLoad").modal('hide');
-                }
-                else {
-                    htmlData += "<tr><td colspan='9' class='aligncenter' set-lan='text:No data.'></td></tr>";
-                    htmlAll = htmlHead + htmlData + htmlFoot;
-                    $("#tbData").append(htmlAll);
-
-                    $("#totalReward").text("-");
-                    $("#totalGet").text("-");
-
-                    SetLan(localStorage.getItem("Language"));
-                    $("#myModalLoad").modal('hide');
-                }
-
-                var txt = "<a class='linkNav Check2' onclick='Check(`2`,``,`" + username + "`)'>" + username + "</a>";
-                var arrNav = $("#navMenu").html();
-                var Check = arrNav.search("Check2");
-                if (Check < 0 && arrNav != "") {
-                    arrNav += " / " + txt;
-                }
-                else if (arrNav == "") {
-                    arrNav += txt;
-                }
-
-                $("#navMenu").html("");
-                $("#navMenu").append(arrNav);
-                $("#navMenu > a:last-child").css("text-decoration", "underline");
-
+            else {
+                document.getElementById('lbAlert').innerHTML = response.messageDescription;
+                $("#myModalLoad").modal('hide');
+                $('#modalAlert').modal('show');
             }
         }
-        else if (response.messageCode == 8004) {
-            document.getElementById('lbAlert').innerHTML = response.messageDescription;
-            $("#myModalLoad").modal('hide');
-            $('#modalAlert').modal('show');
-            window.location.href = "/Login.aspx";
-        }
-        else {
-            document.getElementById('lbAlert').innerHTML = response.messageDescription;
-            $("#myModalLoad").modal('hide');
-            $('#modalAlert').modal('show');
-        }
-    }
 
     </script>
 </asp:Content>

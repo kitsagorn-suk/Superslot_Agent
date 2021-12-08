@@ -429,6 +429,7 @@
     <Content Include="font\fa5\fa-solid-900.woff" />
     <Content Include="font\fa5\fa-solid-900.woff2" />
     <Content Include="Login.aspx" />
+    <Content Include="json\DataSource.json" />
     <None Include="Properties\PublishProfiles\AgentPretty.pubxml" />
     <Content Include="Scripts\underscore.min.map" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />

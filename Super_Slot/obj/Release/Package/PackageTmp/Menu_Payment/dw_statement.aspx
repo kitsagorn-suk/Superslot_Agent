@@ -609,7 +609,7 @@
                         totalNumber: TotalData,
                         pageNumber: num,
                         pageSize: 100,
-                        dataSource: 'https://api.flickr.com/services/feeds/photos_public.gne?tags=cat&tagmode=any&format=json&jsoncallback=?',
+                        dataSource: '/json/DataSource.json',
                         locator: 'items',
                         callback: function (response, pagination) {
                             num = container.pagination('getSelectedPageNum');
@@ -631,7 +631,7 @@
                         totalNumber: TotalData2,
                         pageNumber: num,
                         pageSize: 100,
-                        dataSource: 'https://api.flickr.com/services/feeds/photos_public.gne?tags=cat&tagmode=any&format=json&jsoncallback=?',
+                        dataSource: '/json/DataSource.json',
                         locator: 'items',
                         callback: function (response, pagination) {
                             num = container.pagination('getSelectedPageNum');

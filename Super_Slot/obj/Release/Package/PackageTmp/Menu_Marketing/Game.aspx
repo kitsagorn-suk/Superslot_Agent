@@ -245,7 +245,7 @@
                         totalNumber: TotalData,
                         pageNumber: num,
                         pageSize: 100,
-                        dataSource: 'https://api.flickr.com/services/feeds/photos_public.gne?tags=cat&tagmode=any&format=json&jsoncallback=?',
+                        dataSource: '/json/DataSource.json',
                         locator: 'items',
                         callback: function (response, pagination) {
                             num = container.pagination('getSelectedPageNum');
@@ -427,8 +427,8 @@
                     var select = document.getElementById('selGameType');
                     for (var i = 0; i < response.data.length; i++) {
                         var opt = document.createElement('option');
-                        opt.value = response.data[i].Code;
-                        opt.innerHTML = response.data[i].Code;
+                        opt.value = response.data[i].code;
+                        opt.innerHTML = response.data[i].display;
                         select.appendChild(opt);
                     }
                 }
