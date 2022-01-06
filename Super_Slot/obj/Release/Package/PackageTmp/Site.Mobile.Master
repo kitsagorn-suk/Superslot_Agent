@@ -372,7 +372,7 @@
                                             </ul>
                                         </div>
                                     </li>
-                                    <li id="menuMarketing" class="menuMain">
+                                    <%--<li id="menuMarketing" class="menuMain">
                                         <a class="collapsible-header waves-effect arrow-r">
                                             <i class="sv-slim-icon fas fa-payment"></i>
                                             <label set-lan="text:Marketing Tools" class="main"></label>
@@ -385,7 +385,7 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                    </li>
+                                    </li>--%>
                                     <li id="menuLucky" class="menuMain">
                                         <a class="collapsible-header waves-effect arrow-r">
                                             <i class="sv-slim-icon far fa-report"></i>

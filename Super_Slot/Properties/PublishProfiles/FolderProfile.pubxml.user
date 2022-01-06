@@ -115,10 +115,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/17/2020 14:41:40</publishTime>
     </File>
     <File Include="bin/Pretty_Gaming.dll">
-      <publishTime>12/08/2021 14:19:43</publishTime>
+      <publishTime>12/08/2021 15:34:49</publishTime>
     </File>
     <File Include="bin/Pretty_Gaming.pdb">
-      <publishTime>12/08/2021 14:19:43</publishTime>
+      <publishTime>12/08/2021 15:34:49</publishTime>
     </File>
     <File Include="bin/RestSharp.dll">
       <publishTime>06/17/2020 14:41:39</publishTime>
@@ -1081,10 +1081,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/17/2020 14:41:39</publishTime>
     </File>
     <File Include="Site.Master">
-      <publishTime>10/27/2021 16:36:51</publishTime>
+      <publishTime>12/08/2021 15:34:09</publishTime>
     </File>
     <File Include="Site.Mobile.Master">
-      <publishTime>10/27/2021 16:37:01</publishTime>
+      <publishTime>12/08/2021 15:34:07</publishTime>
     </File>
     <File Include="ViewSwitcher.ascx">
       <publishTime>06/17/2020 14:41:39</publishTime>

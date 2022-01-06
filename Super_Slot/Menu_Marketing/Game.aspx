@@ -158,14 +158,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainScript" runat="server">
     <script src="../js/pagination.js"></script>
-
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.2.0/jszip.min.js"></script>
+    <script src="../js/jszip.js"></script>
 
     <script>
         var Status_MarketingTools = localStorage.getItem("Status_MarketingTools");
         var Check_Enter = "";
-        var arrData = ["6094bdd4d23909a7d1708c8c", "609907389f28b026175c3940"];
+        var arrData = [];
 
         $(document).ready(function () {
             getProvider();
@@ -202,8 +200,6 @@
             $('input[name="ImgSlip1"]:checked').each(function () {
                 arrData.push(this.value);
             });
-
-            console.log(arrData);
 
             if (arrData == "") {
                 document.getElementById("lbAlert").setAttribute("set-lan", "text:Please select 'Data'");
@@ -244,7 +240,7 @@
                     container.pagination({
                         totalNumber: TotalData,
                         pageNumber: num,
-                        pageSize: 100,
+                        pageSize: 50,
                         dataSource: '/json/DataSource.json',
                         locator: 'items',
                         callback: function (response, pagination) {
@@ -272,7 +268,7 @@
                 provider: Provider,
                 gameType: GameType,
                 page: num,
-                size: 100
+                size: 50
             }
             const requestAwait = await fetchDataSite(`${apiURL}/v1/marketing/getGame`, 'POST', "include", parameter)
             const response = await requestAwait.json()
@@ -340,7 +336,7 @@
                 provider: Provider,
                 gameType: GameType,
                 page: num,
-                size: 100
+                size: 50
             }
             const requestAwait = await fetchDataSite(`${apiURL}/v1/marketing/getGame`, 'POST', "include", parameterPage)
             const response = await requestAwait.json()
@@ -450,17 +446,46 @@
             const parameter = {
                 gameIDs: arrData
             }
-            const response = await axios.post('${apiURL}/v1/marketing/download', 'POST', "include", parameter, {
-                responseType: 'blob'
-            });
+            const requestAwait = await fetchDataSite(`${apiURL}/v1/marketing/download`, 'POST', "include", parameter)
+            const response = await requestAwait.text()
 
-            var zip = new JSZip();
-            zip.loadAsync(response.data).then(function (contents) {
-                console.log(Object.keys(contents.files));
-                contents.files["jquery-ui-1.12.1/AUTHORS.txt"].async("string").then(function (data) {
-                    console.log(data);
-                });
-            });
+            var base64String = utf8_to_b64(response);
+            //console.log(base64String);
+            //test("zip1.zip", base64String);
+
+            test("zip1.zip", base64String);
+
+        }
+
+        function utf8_to_b64(str) {
+            return window.btoa(unescape(encodeURIComponent(str)));
+        }
+
+        //function test(filename, data) {
+        //    var element = document.createElement('a');
+        //    element.setAttribute('href', 'data:text/plain;base64,' + data);
+        //    element.setAttribute('download', filename);
+
+        //    element.style.display = 'none';
+        //    document.body.appendChild(element);
+
+        //    element.click();
+
+        //    document.body.removeChild(element);
+        //}
+
+        function test(filename, content) {
+            const zip = new JSZip();
+            zip.loadAsync(content, { base64: true });
+            const blob = zip.generateAsync({ type: "blob" });
+
+            const element = document.createElement("a");
+            element.setAttribute("href", window.URL.createObjectURL(blob));
+            element.setAttribute("download", filename);
+            element.style.display = "none";
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
         }
 
     </script>
