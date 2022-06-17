@@ -393,6 +393,7 @@
     "Edit Sub User": "Edit Sub User",
     "Provider_": "Provider :",
     "Provider": "Provider",
+    "missing 'Provider' field": "Please select 'Provider'",
     "Count": "Count",
     "Count-": "Count<label style='color: red;'>&nbsp;*</label> :",
     "missing 'Count' field": "Please enter 'Count'",
@@ -589,6 +590,7 @@
     "Value_": "Value :",
     "missing 'Value' field": "Please enter 'Value'",
     "Item": "Item",
+    "Item_": "Item :",
     "Market": "Market",
     "Edit Item": "Edit Item",
     "Edit item success": "Edit item success",
@@ -685,7 +687,10 @@
     "Total Winner": "Total Winner",
     "Must be value greater than 0": "Must be value greater than 0",
     "Lucky draw results": "Lucky draw results",
-
+    "Game Market": "Game Market",
+    "Game Market Logs": "Game Market Logs",
+    "Point": "Point",
+    "Sync Item-": "<i class='fas fa-sync mr-1;'></i> Sync Item",
 
 
 
@@ -1101,6 +1106,7 @@ var Thai = {
     "Edit Sub User": "แก้ไขบัญชีย่อย",
     "Provider_": "ผู้ให้บริการ :",
     "Provider": "ผู้ให้บริการ",
+    "missing 'Provider' field": "กรุณาเลือก 'ผู้ให้บริการ'",
     "Count": "จำนวน",
     "Count-": "จำนวน<label style='color: red;'>&nbsp;*</label> :",
     "missing 'Count' field": "กรุณากรอก 'จำนวน'",
@@ -1297,6 +1303,7 @@ var Thai = {
     "Value_": "มูลค่า :",
     "missing 'Value' field": "กรุณากรอก 'มูลค่า'",
     "Item": "รายการ",
+    "Item_": "รายการ :",
     "Market": "ตลาด",
     "Edit Item": "แก้ไขรายการ",
     "Edit item success": "แก้ไขรายการสำเร็จ",
@@ -1393,6 +1400,11 @@ var Thai = {
     "Total Winner": "ผู้ถูกรางวัลทั้งหมด",
     "Must be value greater than 0": "ต้องมีค่ามากกว่า 0",
     "Lucky draw results": "เลขที่ออก",
+    "Game Market": "ตลาดเกม",
+    "Game Market Logs": "บันทึกตลาดเกม",
+    "Point": "แต้ม",
+    "Sync Item-": "<i class='fas fa-sync mr-1;'></i> อัพเดตรายการ",
+    "Sync item success": "อัพเดตรายการสำเร็จ",
 
 
 
@@ -1811,6 +1823,7 @@ var Chinese = {
     "Delete announcement success": "删除公告成功",
     "Edit Sub User": "编辑子用户",
     "Provider_": "提供者:",
+    "missing 'Provider' field": "请选择 '提供者'",
     "Provider": "提供者",
     "Count": "计算",
     "Count-": "计算<label style='color: red;'>&nbsp;*</label> :",
@@ -2009,6 +2022,7 @@ var Chinese = {
     "Value_": "价值 :",
     "missing 'Value' field": "请输入 '价值'",
     "Item": "项目",
+    "Item_": "项目 :",
     "Market": "市场",
     "Edit Item": "编辑项目",
     "Edit item success": "编辑项目成功",
@@ -2105,6 +2119,11 @@ var Chinese = {
     "Total Winner": "所有获奖者",
     "Must be value greater than 0": "必须大于 0",
     "Lucky draw results": "结果数字",
+    "Game Market": "游戏市场",
+    "Game Market Logs": "游戏市场日志",
+    "Point": "点数",
+    "Sync Item-": "<i class='fas fa-sync mr-1;'></i> 同步项目列表",
+    "Sync item success": "同步项目列表",
 
 
 

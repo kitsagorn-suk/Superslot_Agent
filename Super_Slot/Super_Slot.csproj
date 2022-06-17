@@ -221,6 +221,8 @@
     <Content Include="css\style.css" />
     <Content Include="css\style.min.css" />
     <Content Include="css\w3.css" />
+    <Content Include="img\background\bg_songkran.jpg" />
+    <Content Include="img\background\f5.jpg" />
     <Content Include="img\chart01.jpg" />
     <Content Include="img\chart02.jpg" />
     <Content Include="img\chart03.jpg" />
@@ -335,6 +337,9 @@
     <Content Include="Menu_Dashboard\dashboard.aspx" />
     <Content Include="Menu_Account\password_change.aspx" />
     <Content Include="Menu_Feedback\feedback.aspx" />
+    <Content Include="Menu_game_market\game_market_log.aspx" />
+    <Content Include="Menu_game_market\goal.aspx" />
+    <Content Include="Menu_game_market\item.aspx" />
     <Content Include="Menu_LuckyDraw\goal.aspx" />
     <Content Include="Menu_LuckyDraw\logs.aspx" />
     <Content Include="Menu_LuckyDraw\reward.aspx" />
@@ -497,6 +502,27 @@
     </Compile>
     <Compile Include="Menu_Feedback\feedback.aspx.designer.cs">
       <DependentUpon>feedback.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_game_market\game_market_log.aspx.cs">
+      <DependentUpon>game_market_log.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_game_market\game_market_log.aspx.designer.cs">
+      <DependentUpon>game_market_log.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_game_market\goal.aspx.cs">
+      <DependentUpon>goal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_game_market\goal.aspx.designer.cs">
+      <DependentUpon>goal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_game_market\item.aspx.cs">
+      <DependentUpon>item.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu_game_market\item.aspx.designer.cs">
+      <DependentUpon>item.aspx</DependentUpon>
     </Compile>
     <Compile Include="Menu_LuckyDraw\goal.aspx.cs">
       <DependentUpon>goal.aspx</DependentUpon>

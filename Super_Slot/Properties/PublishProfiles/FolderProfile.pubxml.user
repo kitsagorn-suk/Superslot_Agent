@@ -115,10 +115,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/17/2020 14:41:40</publishTime>
     </File>
     <File Include="bin/Pretty_Gaming.dll">
-      <publishTime>12/08/2021 15:34:49</publishTime>
+      <publishTime>06/17/2022 11:23:53</publishTime>
     </File>
     <File Include="bin/Pretty_Gaming.pdb">
-      <publishTime>12/08/2021 15:34:49</publishTime>
+      <publishTime>06/17/2022 11:23:53</publishTime>
     </File>
     <File Include="bin/RestSharp.dll">
       <publishTime>06/17/2020 14:41:39</publishTime>
@@ -362,6 +362,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Global.asax">
       <publishTime>06/17/2020 14:41:39</publishTime>
+    </File>
+    <File Include="img/background/bg_songkran.jpg">
+      <publishTime>01/04/2022 23:59:37</publishTime>
+    </File>
+    <File Include="img/background/f5.jpg">
+      <publishTime>01/13/2022 20:09:55</publishTime>
     </File>
     <File Include="img/Card/10C.png">
       <publishTime>04/20/2020 13:08:26</publishTime>
@@ -792,8 +798,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="js/jquery.marquee.min.js">
       <publishTime>06/17/2020 14:41:39</publishTime>
     </File>
+    <File Include="js/jszip.js">
+      <publishTime>12/13/2021 19:10:20</publishTime>
+    </File>
     <File Include="js/language_Login.js">
-      <publishTime>11/08/2021 14:36:16</publishTime>
+      <publishTime>06/16/2022 19:26:11</publishTime>
     </File>
     <File Include="js/marquee.js">
       <publishTime>06/17/2020 14:41:39</publishTime>
@@ -817,16 +826,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/17/2020 14:41:39</publishTime>
     </File>
     <File Include="json/DataSource.json">
-      <publishTime>12/08/2021 11:01:11</publishTime>
+      <publishTime>08/12/2021 11:01:11</publishTime>
     </File>
     <File Include="Login.aspx">
-      <publishTime>10/27/2021 15:08:42</publishTime>
+      <publishTime>06/16/2022 19:03:13</publishTime>
     </File>
     <File Include="Menu_Account/password_change.aspx">
       <publishTime>11/17/2020 19:02:59</publishTime>
     </File>
     <File Include="Menu_Account/profile.aspx">
-      <publishTime>09/07/2020 14:19:03</publishTime>
+      <publishTime>07/09/2020 14:19:03</publishTime>
     </File>
     <File Include="Menu_Agent/agent_add.aspx">
       <publishTime>07/21/2020 15:19:10</publishTime>
@@ -838,7 +847,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/12/2021 03:20:43</publishTime>
     </File>
     <File Include="Menu_CheckBalance/transfer_failed.aspx">
-      <publishTime>12/08/2021 14:13:13</publishTime>
+      <publishTime>08/12/2021 14:13:13</publishTime>
     </File>
     <File Include="Menu_Daily/goal.aspx">
       <publishTime>07/20/2021 03:47:28</publishTime>
@@ -853,16 +862,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/21/2021 15:05:57</publishTime>
     </File>
     <File Include="Menu_Feedback/feedback.aspx">
-      <publishTime>12/08/2021 14:13:29</publishTime>
+      <publishTime>08/12/2021 14:13:29</publishTime>
+    </File>
+    <File Include="Menu_game_market/game_market_log.aspx">
+      <publishTime>06/16/2022 16:24:19</publishTime>
+    </File>
+    <File Include="Menu_game_market/goal.aspx">
+      <publishTime>06/16/2022 17:01:37</publishTime>
+    </File>
+    <File Include="Menu_game_market/item.aspx">
+      <publishTime>06/17/2022 11:23:29</publishTime>
     </File>
     <File Include="Menu_LuckyDraw/goal.aspx">
-      <publishTime>11/01/2021 13:58:45</publishTime>
+      <publishTime>06/15/2022 14:51:18</publishTime>
     </File>
     <File Include="Menu_LuckyDraw/logs.aspx">
-      <publishTime>12/08/2021 14:15:41</publishTime>
+      <publishTime>08/12/2021 14:15:41</publishTime>
     </File>
     <File Include="Menu_LuckyDraw/reward.aspx">
-      <publishTime>11/01/2021 14:01:46</publishTime>
+      <publishTime>01/11/2021 14:01:46</publishTime>
     </File>
     <File Include="Menu_Market/goal.aspx">
       <publishTime>07/20/2021 02:01:33</publishTime>
@@ -871,7 +889,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/24/2021 20:13:51</publishTime>
     </File>
     <File Include="Menu_Marketing/Game.aspx">
-      <publishTime>12/08/2021 14:15:41</publishTime>
+      <publishTime>12/13/2021 19:12:40</publishTime>
     </File>
     <File Include="Menu_Member/member_add.aspx">
       <publishTime>10/15/2020 15:25:01</publishTime>
@@ -889,10 +907,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/10/2020 13:40:40</publishTime>
     </File>
     <File Include="Menu_MemberManagement/company_add.aspx">
-      <publishTime>09/02/2021 13:36:47</publishTime>
+      <publishTime>02/09/2021 13:36:47</publishTime>
     </File>
     <File Include="Menu_MemberManagement/company_list.aspx">
-      <publishTime>12/08/2021 14:15:41</publishTime>
+      <publishTime>08/12/2021 14:15:41</publishTime>
     </File>
     <File Include="Menu_MemberManagement/List.aspx">
       <publishTime>06/29/2020 18:41:48</publishTime>
@@ -907,19 +925,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/10/2020 13:40:39</publishTime>
     </File>
     <File Include="Menu_MemberManagement/provider_id.aspx">
-      <publishTime>07/02/2021 15:34:22</publishTime>
+      <publishTime>02/07/2021 15:34:22</publishTime>
     </File>
     <File Include="Menu_MemberManagement/shareholder_edit.aspx">
       <publishTime>06/10/2020 13:40:39</publishTime>
     </File>
     <File Include="Menu_MemberManagement/sub_accounts.aspx">
-      <publishTime>12/08/2021 14:15:41</publishTime>
+      <publishTime>08/12/2021 14:15:41</publishTime>
     </File>
     <File Include="Menu_MemberManagement/sub_user_add.aspx">
       <publishTime>10/27/2021 18:40:24</publishTime>
     </File>
     <File Include="Menu_Mission/Mission.aspx">
-      <publishTime>12/08/2021 14:13:51</publishTime>
+      <publishTime>08/12/2021 14:13:51</publishTime>
     </File>
     <File Include="Menu_Notification/notification.aspx">
       <publishTime>07/20/2021 01:38:56</publishTime>
@@ -928,46 +946,46 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/16/2020 03:50:41</publishTime>
     </File>
     <File Include="Menu_Payment/dw_statement.aspx">
-      <publishTime>12/08/2021 14:14:17</publishTime>
+      <publishTime>08/12/2021 14:14:17</publishTime>
     </File>
     <File Include="Menu_Payment/dw_statement_support.aspx">
-      <publishTime>12/08/2021 14:15:41</publishTime>
+      <publishTime>08/12/2021 14:15:41</publishTime>
     </File>
     <File Include="Menu_Payment/statement.aspx">
-      <publishTime>12/08/2021 14:15:20</publishTime>
+      <publishTime>08/12/2021 14:15:20</publishTime>
     </File>
     <File Include="Menu_Payment/transfer.aspx">
-      <publishTime>12/08/2021 14:16:15</publishTime>
+      <publishTime>08/12/2021 14:16:15</publishTime>
     </File>
     <File Include="Menu_RedEnvelope/goal.aspx">
       <publishTime>04/24/2021 17:29:58</publishTime>
     </File>
     <File Include="Menu_RedEnvelope/reward.aspx">
-      <publishTime>07/20/2021 01:33:53</publishTime>
+      <publishTime>06/15/2022 15:26:03</publishTime>
     </File>
     <File Include="Menu_RedEnvelope/tier.aspx">
       <publishTime>07/20/2021 01:58:27</publishTime>
     </File>
     <File Include="Menu_Report/daily_report.aspx">
-      <publishTime>12/08/2021 14:15:56</publishTime>
+      <publishTime>08/12/2021 14:15:56</publishTime>
     </File>
     <File Include="Menu_Report/game_report.aspx">
-      <publishTime>12/08/2021 14:16:22</publishTime>
+      <publishTime>08/12/2021 14:16:22</publishTime>
     </File>
     <File Include="Menu_Report/lucky_report.aspx">
-      <publishTime>12/08/2021 14:16:30</publishTime>
+      <publishTime>08/12/2021 14:16:30</publishTime>
     </File>
     <File Include="Menu_Report/market_report.aspx">
-      <publishTime>12/08/2021 14:17:15</publishTime>
+      <publishTime>08/12/2021 14:17:15</publishTime>
     </File>
     <File Include="Menu_Report/provider_report.aspx">
-      <publishTime>12/08/2021 14:16:45</publishTime>
+      <publishTime>08/12/2021 14:16:45</publishTime>
     </File>
     <File Include="Menu_Report/red_report.aspx">
-      <publishTime>12/08/2021 14:16:57</publishTime>
+      <publishTime>08/12/2021 14:16:57</publishTime>
     </File>
     <File Include="Menu_Report/tournament_report.aspx">
-      <publishTime>12/08/2021 14:17:14</publishTime>
+      <publishTime>08/12/2021 14:17:14</publishTime>
     </File>
     <File Include="Menu_Report/wl_member.aspx">
       <publishTime>06/17/2020 14:41:39</publishTime>
@@ -976,10 +994,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/17/2020 14:41:39</publishTime>
     </File>
     <File Include="Menu_Report/wl_report.aspx">
-      <publishTime>12/08/2021 14:18:19</publishTime>
+      <publishTime>08/12/2021 14:18:19</publishTime>
     </File>
     <File Include="Menu_Report/wl_report_support.aspx">
-      <publishTime>12/08/2021 14:17:36</publishTime>
+      <publishTime>08/12/2021 14:17:36</publishTime>
     </File>
     <File Include="Menu_SeamlessAPI/recalculate.aspx">
       <publishTime>06/17/2020 14:41:39</publishTime>
@@ -1006,13 +1024,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/12/2021 02:24:46</publishTime>
     </File>
     <File Include="Menu_Tournament/tournment_logs.aspx">
-      <publishTime>12/08/2021 14:18:04</publishTime>
+      <publishTime>08/12/2021 14:18:04</publishTime>
     </File>
     <File Include="Menu_Tournament/tournment_prize.aspx">
-      <publishTime>12/08/2021 14:17:54</publishTime>
+      <publishTime>08/12/2021 14:17:54</publishTime>
     </File>
     <File Include="Menu_Tournament/tournment_rules.aspx">
-      <publishTime>12/08/2021 14:18:02</publishTime>
+      <publishTime>08/12/2021 14:18:02</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>06/17/2020 14:41:39</publishTime>
@@ -1081,16 +1099,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/17/2020 14:41:39</publishTime>
     </File>
     <File Include="Site.Master">
-      <publishTime>12/08/2021 15:34:09</publishTime>
+      <publishTime>06/15/2022 15:49:33</publishTime>
     </File>
     <File Include="Site.Mobile.Master">
-      <publishTime>12/08/2021 15:34:07</publishTime>
+      <publishTime>06/15/2022 15:49:29</publishTime>
     </File>
     <File Include="ViewSwitcher.ascx">
       <publishTime>06/17/2020 14:41:39</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/08/2021 11:06:53</publishTime>
+      <publishTime>08/12/2021 11:06:53</publishTime>
     </File>
   </ItemGroup>
 </Project>

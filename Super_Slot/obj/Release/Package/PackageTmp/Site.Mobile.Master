@@ -37,16 +37,15 @@
             background: #EFF0F2;
         }
 
-        9
         /* Handle */
         .side-nav::-webkit-scrollbar-thumb {
             background: #46220E;
         }
 
-        /* Handle on hover */
-        .side-nav::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
+            /* Handle on hover */
+            .side-nav::-webkit-scrollbar-thumb:hover {
+                background: #555;
+            }
 
         .side-nav::-webkit-scrollbar-button {
             background: #fff;
@@ -372,7 +371,7 @@
                                             </ul>
                                         </div>
                                     </li>
-                                    <%--<li id="menuMarketing" class="menuMain">
+                                    <li id="menuMarketing" class="menuMain">
                                         <a class="collapsible-header waves-effect arrow-r">
                                             <i class="sv-slim-icon fas fa-payment"></i>
                                             <label set-lan="text:Marketing Tools" class="main"></label>
@@ -385,7 +384,7 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                    </li>--%>
+                                    </li>
                                     <li id="menuLucky" class="menuMain">
                                         <a class="collapsible-header waves-effect arrow-r">
                                             <i class="sv-slim-icon far fa-report"></i>
@@ -402,6 +401,26 @@
                                                 </li>
                                                 <li id="menuLucky_Logs"><a href="/Menu_LuckyDraw/logs.aspx" class="waves-effect">
                                                     <span class="sv-normal submain" set-lan="text:Lucky Draw Logs"></span></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li id="menuGame" class="menuMain">
+                                        <a class="collapsible-header waves-effect arrow-r">
+                                            <i class="sv-slim-icon far fa-report"></i>
+                                            <label set-lan="text:Game Market" class="main"></label>
+                                            <i class="fas fa-angle-down rotate-icon"></i>
+                                        </a>
+                                        <div class="collapsible-body">
+                                            <ul>
+                                                <li id="menuGame_Goal"><a href="/Menu_game_market/goal.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Goal"></span></a>
+                                                </li>
+                                                <li id="menuGame_Item"><a href="/Menu_game_market/item.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Item"></span></a>
+                                                </li>
+                                                <li id="menuGame_Logs"><a href="/Menu_game_market/game_market_log.aspx" class="waves-effect">
+                                                    <span class="sv-normal submain" set-lan="text:Game Market Logs"></span></a>
                                                 </li>
                                             </ul>
                                         </div>

@@ -482,4 +482,3 @@ C:\Users\molim\Documents\GitHub\Superslot_Agent\Super_Slot\obj\Debug\Super_Slot.
 C:\Users\molim\Documents\GitHub\Superslot_Agent\Super_Slot\obj\Debug\Super_Slot.csproj.CopyComplete
 C:\Users\molim\Documents\GitHub\Superslot_Agent\Super_Slot\obj\Debug\Pretty_Gaming.dll
 C:\Users\molim\Documents\GitHub\Superslot_Agent\Super_Slot\obj\Debug\Pretty_Gaming.pdb
-C:\Users\molim\Documents\GitHub\Superslot_Agent\Super_Slot\obj\Debug\Super_Slot.csprojAssemblyReference.cache

@@ -16,6 +16,14 @@
         .waves-input-wrapper {
             display: block !important;
         }
+
+        /*HNY*/
+        .login-page {
+            background-image: url("img/background/bg_songkran.jpg") !important;
+            background-size: cover;
+            background-repeat: round;
+        }
+        /*HNY*/
     </style>
 </head>
 <body class="login-page">
