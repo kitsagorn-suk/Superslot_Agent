@@ -372,6 +372,23 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row mb-1 inputform">
+                        <label class="col-5 col-form-label input-text-label" set-lan="text:Game Market"></label>
+                        <div class="col-7">
+                            <div class="form-check form-check-inline">
+                                <input type="radio" class="form-check-input" id="GameMarketRadio_off" name="GameMarketRadio" value="OFF">
+                                <label class="form-check-label red-text" for="GameMarketRadio_off" set-lan="text:Off"></label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" checked="" class="form-check-input" id="GameMarketRadio_view" name="GameMarketRadio" value="VIEW">
+                                <label class="form-check-label orange-text" for="GameMarketRadio_view" set-lan="text:View"></label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" class="form-check-input" id="GameMarketRadio_edit" name="GameMarketRadio" value="EDIT">
+                                <label class="form-check-label green-text" for="GameMarketRadio_edit" set-lan="text:Edit"></label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -651,7 +668,8 @@
                     tournament: $("input[name='TournamentRadio']:checked").val(),
                     dailyReward: $("input[name='DailyRewardsRadio']:checked").val(),
                     marketingTools: $("input[name='MarketingToolsRadio']:checked").val(),
-                    lotto: $("input[name='LuckyDrawRadio']:checked").val()
+                    lotto: $("input[name='LuckyDrawRadio']:checked").val(),
+                    gameMarket: $("input[name='GameMarketRadio']:checked").val()
                 }
             }
             const requestAwait = await fetchDataSite(`${apiURL}/v1/subuser/create`, 'POST', "include", parameterAddSub)
@@ -701,7 +719,8 @@
                     tournament: $("input[name='TournamentRadio']:checked").val(),
                     dailyReward: $("input[name='DailyRewardsRadio']:checked").val(),
                     marketingTools: $("input[name='MarketingToolsRadio']:checked").val(),
-                    lotto: $("input[name='LuckyDrawRadio']:checked").val()
+                    lotto: $("input[name='LuckyDrawRadio']:checked").val(),
+                    gameMarket: $("input[name='GameMarketRadio']:checked").val()
                 }
             }
             const requestAwait = await fetchDataSite(`${apiURL}/v1/subuser/update`, 'POST', "include", parameterAddSub)
@@ -763,6 +782,7 @@
                         var txtDailyReward = response.data[i].permissions.dailyReward;
                         var txtMarketingTools = response.data[i].permissions.marketingTools;
                         var txtLotto = response.data[i].permissions.lotto;
+                        var txtGameMarket = response.data[i].permissions.gameMarket;
 
                         if (Lock == false) {
                             Lock = "Unlock";
@@ -946,6 +966,15 @@
                             document.getElementById("LuckyDrawRadio_view").checked = true;
                         } else if (txtLotto == "EDIT") {
                             document.getElementById("LuckyDrawRadio_edit").checked = true;
+                        }
+
+                        if (txtGameMarket == "OFF" || txtGameMarket == "") {
+                            document.getElementById("GameMarketRadio_off").checked = true;
+                        }
+                        else if (txtGameMarket == "VIEW") {
+                            document.getElementById("GameMarketRadio_view").checked = true;
+                        } else if (txtGameMarket == "EDIT") {
+                            document.getElementById("GameMarketRadio_edit").checked = true;
                         }
                     }
                 }

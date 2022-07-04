@@ -109,7 +109,6 @@
     <script>
         var ID_DEL = "";
         var Status_Lotto = localStorage.getItem("Status_Lotto");
-        console.log(Status_Lotto);
 
         $(document).ready(function () {
             $("#menuGame , #menuGame > a").addClass("active");

@@ -366,6 +366,8 @@
                 localStorage.setItem("Status_DailyReward", response.data.permissions.dailyReward);
                 localStorage.setItem("Status_MarketingTools", response.data.permissions.marketingTools);
                 localStorage.setItem("Status_Lotto", response.data.permissions.lotto);
+                localStorage.setItem("Status_GameMarket", response.data.permissions.gameMarket);
+
 
 
                 localStorage.setItem("Status_Support_Report", response.data.permissions.reportForSupport);
@@ -484,6 +486,10 @@
                 else if (localStorage.getItem("Status_Lotto") != "OFF" || localStorage.getItem("Status_Lotto") != "") {
                     window.location.href = "/Menu_LuckyDraw/goal.aspx";
                 }
+                else if (localStorage.getItem("Status_GameMarket") != "OFF" || localStorage.getItem("Status_GameMarket") != "") {
+                    window.location.href = "/Menu_game_market/goal.aspx";
+                }
+
 
 
                 if (localStorage.getItem("Position") == "SUPPORT") {

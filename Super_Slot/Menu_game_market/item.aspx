@@ -12,8 +12,6 @@
             <h1 set-lan="text:Item"></h1>
         </div>
     </div>
-
-
     <div class="btn-toolbar section-group" role="toolbar" style="padding-bottom: 0px !important;">
         <div class="row col-md-12">
             <div class="form-group row" style="padding-left: 1rem;">
@@ -21,11 +19,12 @@
                 <div style="padding-left: 1rem;">
                     <div class="select-outline">
                         <select id="selProvider" class="mdb-select" name="LselPro">
-                            <option value="" set-lan="text:Select"></option>
+                            <option value="0" set-lan="text:Select"></option>
                         </select>
                     </div>
                 </div>
             </div>
+
             <%--Don't Delete!--%>
             <div class="row" style="padding-left: 2.5rem; display: none;">
                 <label for="DontDelete" class="col-form-label alignright">Don't Delete!</label>
@@ -53,18 +52,20 @@
         <table class="table table-border" id="tbData">
             <thead class="rgba-green-slight">
                 <tr>
-                    <th style="width: 1%;" set-lan="text:No"></th>
+                    <th style="width: 2%;" set-lan="text:No"></th>
                     <th style="width: 10%;" set-lan="text:Item"></th>
                     <th style='width: 8%; text-align: right; padding-right: 5px;' set-lan='text:Value'></th>
                     <th style="width: 10%;" set-lan="text:Percent"></th>
                     <th style='width: 8%; text-align: right; padding-right: 5px;'><span set-lan='text:Count'></span>(<span set-lan="text:per week"></span>)</th>
-                    <th style="width: 10%;" set-lan="text:Status"></th>
+                    <th style="width: 10%;" set-lan="text:Image"></th>
+                    <th style="width: 5%;" set-lan="text:Status"></th>
                     <th style="width: 1%;" class="edit" set-lan="text:Action"></th>
                 </tr>
             </thead>
             <tbody></tbody>
             <tfoot class="rgba-yellow-slight">
                 <tr class="total">
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -191,7 +192,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainScript" runat="server">
     <script>
         var ID_DEL = "";
-        var Status_Lotto = localStorage.getItem("Status_Lotto");
+        var Status_GameMarket = localStorage.getItem("Status_GameMarket");
 
         $(document).ready(function () {
             getProvider();
@@ -199,7 +200,7 @@
             $("#menuGame , #menuGame > a").addClass("active");
             $("#menuGame > div").css("display", "block");
 
-            if (Status_Lotto != "EDIT") {
+            if (Status_GameMarket != "EDIT") {
                 $('.edit , .colEdit').css('display', 'none');
             }
             else {
@@ -233,24 +234,25 @@
         }
 
         function btnSave(status) {
+            var Percent1 = $('#Percent1').val();
             var Count = $('#Count').val();
 
-            if (Count == "" || Count == null) {
-                document.getElementById("lbAlert").setAttribute("set-lan", "text:missing 'Value' field");
+
+            if (Percent1 == "" || Percent1 == null) {
+                document.getElementById("lbAlert").setAttribute("set-lan", "text:missing 'Percent' field");
                 SetLan(localStorage.getItem("Language"));
                 $('#modalAlert').modal('show');
                 $("#myModalLoad").modal('hide');
             }
-            else if (Count == 0) {
-                document.getElementById("lbAlert").setAttribute("set-lan", "text:Must be value greater than 0");
+            else if (Count == "" || Count == null) {
+                document.getElementById("lbAlert").setAttribute("set-lan", "text:missing 'Count' field");
                 SetLan(localStorage.getItem("Language"));
                 $('#modalAlert').modal('show');
                 $("#myModalLoad").modal('hide');
             }
             else {
                 if (status == "Save") {
-                    alert("...wait :) ...");
-                    //postEdit();
+                    postEdit();
                 }
             }
         }
@@ -282,7 +284,7 @@
         const getData = async () => {
             var Provider = $('#selProvider').val();
             const parameter = {
-                providerCode: Provider
+                gameID: parseInt(Provider)
             }
 
             const requestAwait = await fetchDataSite(`${apiURL}/v1/gameMarket/item/inquiry`, 'POST', "include", parameter)
@@ -298,7 +300,7 @@
 
                         htmlData += "<tr>";
                         htmlData += "<td style='width: 1%;' class='aligncenter'>" + no + "</td>";
-                        htmlData += "<td>" + obj.itemName + "</td>";
+                        htmlData += "<td>" + obj.itemNameEN + "</td>";
 
                         var value = obj.value.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
                         htmlData += "<td class='alignright'>" + value + " <span set-lan='text:Point'></span></td>";
@@ -306,8 +308,10 @@
                         var percent = obj.percent.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
                         htmlData += "<td class='alignright'>" + percent + "%</td>";
 
-                        var count = obj.count.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-                        htmlData += "<td class='alignright'>" + count + "</td>";
+                        var perWeek = obj.perWeek.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+                        htmlData += "<td class='alignright'>" + perWeek + "</td>";
+
+                        htmlData += "<td style='text-align: center;'><img src='" + obj.pic + "' style='height: 100px;'></td>";
 
                         var status = obj.active;
                         if (status == true) {
@@ -317,7 +321,7 @@
                             htmlData += "<td class='aligncenter' set-lan='text:Inactive' style='color:red;'></td>";
                         }
 
-                        htmlData += "<td style='width: 1%;' class='aligncenter colEdit zonenone'><a class='link' onclick='btnEdit(`" + obj.id + "`,`" + obj.itemName + "`,`" + value + "`,`" + percent + "`,`" + count + "`,`" + status + "`)'><i class='fas fa-pencil-alt'></i></a></td>";
+                        htmlData += "<td style='width: 1%;' class='aligncenter colEdit zonenone'><a class='link' onclick='btnEdit(`" + obj.id + "`,`" + obj.itemNameEN + "`,`" + value + "`,`" + percent + "`,`" + perWeek + "`,`" + status + "`)'><i class='fas fa-pencil-alt'></i></a></td>";
                         htmlData += "</tr>";
                         no++;
                     }
@@ -330,6 +334,13 @@
                 $("#selProvider").removeAttr("disabled");
                 $('#selProvider option').removeAttr('selected');
                 $("#selProvider option[value='" + Provider + "']").attr("selected", "selected");
+
+                if (Status_GameMarket != "EDIT") {
+                    $('.edit , .colEdit').css('display', 'none');
+                }
+                else {
+                    $('.edit , .colEdit').css('display', 'table-cell');
+                }
 
                 SetLan(localStorage.getItem("Language"));
                 $("#myModalLoad").modal('hide');
@@ -348,14 +359,17 @@
         }
 
         const postEdit = async () => {
+            var isTrueSet = ($('#selStatus').val() === 'true');
             var Count = $('#Count').val();
             Count = Count.replaceAll(",", "");
 
             const parameter = {
                 id: $('#ID').val(),
-                rewardLotto: parseFloat(Count),
+                percent: parseFloat($('#Percent1').val()),
+                perWeek: parseFloat(Count),
+                active: isTrueSet
             }
-            const requestAwait = await fetchDataSite(`${apiURL}/v1/lotto/set/rewardConfig`, 'POST', "include", parameter)
+            const requestAwait = await fetchDataSite(`${apiURL}/v1/gameMarket/item/update`, 'POST', "include", parameter)
             const response = await requestAwait.json()
 
             if (response.messageCode == 0000 || response.messageCode == null) {
@@ -365,7 +379,7 @@
                 $("#modalTier").modal('hide');
                 $('#modalAlertSuccess').modal();
                 setTimeout(function () {
-                    window.location.href = "/Menu_LuckyDraw/reward.aspx";
+                    window.location.href = "/Menu_game_market/item.aspx";
                 }, 1500);
             }
             else if (response.messageCode == 8004) {
@@ -417,15 +431,15 @@
         }
 
         const getProvider = async () => {
-            const requestAwait = await fetchDataSite(`${apiURL}/v1/marketing/provider`, 'GET', "include", {})
+            const requestAwait = await fetchDataSite(`${apiURL}/v1/gameMarket/game/get`, 'GET', "include", {})
             const response = await requestAwait.json()
             if (response.messageCode == 0000 || response.messageCode == null) {
                 if (response.data.length != 0) {
                     var select = document.getElementById('selProvider');
                     for (var i = 0; i < response.data.length; i++) {
                         var opt = document.createElement('option');
-                        opt.value = response.data[i].code;
-                        opt.innerHTML = response.data[i].code;
+                        opt.value = response.data[i].id;
+                        opt.innerHTML = response.data[i].name;
                         select.appendChild(opt);
                     }
                 }

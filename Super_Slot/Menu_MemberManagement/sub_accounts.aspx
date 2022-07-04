@@ -241,6 +241,7 @@
                             var dailyReward = obj.permissions.dailyReward;
                             var marketingTools = obj.permissions.marketingTools;
                             var lotto = obj.permissions.lotto;
+                            var gameMarket = obj.permissions.gameMarket;
 
                             if (dashboard == "" || dashboard == null) {
                                 dashboard = "<span class='FloatR'>-</span>";
@@ -446,6 +447,18 @@
                                 }
                             }
 
+                            if (gameMarket == "" || gameMarket == null) {
+                                gameMarket = "<span class='FloatR'>-</span>";
+                            } else {
+                                if (gameMarket == "OFF") {
+                                    gameMarket = "<span class='FloatR red-text' set-lan='text:" + gameMarket + "'></span>";
+                                } else if (gameMarket == "VIEW") {
+                                    gameMarket = "<span class='FloatR orange-text' set-lan='text:" + gameMarket + "'></span>";
+                                } else if (gameMarket == "EDIT") {
+                                    gameMarket = "<span class='FloatR green-text' set-lan='text:" + gameMarket + "'></span>";
+                                }
+                            }
+
                             var Zone = "";
                             var Zone2 = "";
                             if (Position == "COMPANY") {
@@ -473,6 +486,7 @@
                                 "<b set-lan='text:Daily Rewards'></b>" + dailyReward + "<br />" +
                                 "<b set-lan='text:Marketing Tools'></b>" + marketingTools + "<br />" +
                                 "<b set-lan='text:Lucky Draw'></b>" + lotto + "<br />" +
+                                "<b set-lan='text:Game Market'></b>" + gameMarket + "<br />" +
                                 "</td>";
 
                             if (obj.lastLoginIp == "" || obj.lastLoginIp == null) {
@@ -579,6 +593,7 @@
                         var dailyReward = obj.permissions.dailyReward;
                         var marketingTools = obj.permissions.marketingTools;
                         var lotto = obj.permissions.lotto;
+                        var gameMarket = obj.permissions.gameMarket;
 
                         if (dashboard == "" || dashboard == null) {
                             dashboard = "<span class='FloatR'>-</span>";
@@ -793,6 +808,18 @@
                             }
                         }
 
+                        if (gameMarket == "" || gameMarket == null) {
+                            gameMarket = "<span class='FloatR'>-</span>";
+                        } else {
+                            if (gameMarket == "OFF") {
+                                gameMarket = "<span class='FloatR red-text' set-lan='text:" + gameMarket + "'></span>";
+                            } else if (gameMarket == "VIEW") {
+                                gameMarket = "<span class='FloatR orange-text' set-lan='text:" + gameMarket + "'></span>";
+                            } else if (gameMarket == "EDIT") {
+                                gameMarket = "<span class='FloatR green-text' set-lan='text:" + gameMarket + "'></span>";
+                            }
+                        }
+
                         var Zone = "";
                         var Zone2 = "";
                         if (Position == "COMPANY") {
@@ -822,6 +849,7 @@
                             "<b set-lan='text:Daily Rewards'></b>" + dailyReward + "<br />" +
                             "<b set-lan='text:Marketing Tools'></b>" + marketingTools + "<br />" +
                             "<b set-lan='text:Lucky Draw'></b>" + lotto + "<br />" +
+                            "<b set-lan='text:Game Market'></b>" + gameMarket + "<br />" +
                             "</td>";
 
                         //permission
